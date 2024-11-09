@@ -2,9 +2,8 @@ import Image from "next/image";
 import React from "react";
 import { FaCircleArrowRight } from "react-icons/fa6";
 
-interface Props {}
 
-const page = (props: Props) => {
+const page = () => {
   return (
     <div className="bgcar h-screen w-screen overflow-hidden">
       <div className="flex h-[30%]">
