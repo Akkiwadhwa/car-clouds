@@ -16,6 +16,25 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.bgimg {
+  background-image: url('../../public/car_clouds.png');
+  background-size: 95% 100vh;
+  align-content: end;
+ 
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.bgcar {
+  background-image: url('../../public/car_clouds.png');
+  background-size: 100% 80vh;
+  align-content: top;
+
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  background-position: top;
 }
