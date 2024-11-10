@@ -15,7 +15,7 @@ const CarMileagePage = () => {
 
 
   const handleContinue = () => {
-    const data = encodeURIComponent(JSON.stringify(vehicleData));
+    // const data = encodeURIComponent(JSON.stringify(vehicleData));
     router.push(`/estimate`);
   };
 
