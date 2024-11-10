@@ -1,12 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { FcOk } from "react-icons/fc";
 import { FaCircleArrowRight } from "react-icons/fa6";
 
-interface Props {}
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <div className="w-full h-screen">
       <div className="flex w-full">
