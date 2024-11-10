@@ -38,3 +38,13 @@ body {
   background-repeat: no-repeat;
   background-position: top;
 }
+
+.bgcar2 {
+  background-image: url('../../public/car_clouds.png');
+  background-size: 100% 100%;
+  align-content: top;
+
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  background-position: top;
+}
