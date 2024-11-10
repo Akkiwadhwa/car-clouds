@@ -1,18 +1,17 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { FcOk } from "react-icons/fc";
 import { FaCircleArrowRight } from "react-icons/fa6";
 
-const CarMileagePage = () => {
+const CarMileagePageContent = () => {
   const searchParams = useSearchParams();
   const data = searchParams.get("data");
   const vehicleData = data ? JSON.parse(decodeURIComponent(data)) : null;
 
   const router = useRouter();
-
 
   const handleContinue = () => {
     // const data = encodeURIComponent(JSON.stringify(vehicleData));
@@ -22,10 +21,10 @@ const CarMileagePage = () => {
   return (
     <div className="w-full h-screen">
       <div className="flex w-full">
-        <div className="bg-white w-full flex flex-col  h-screen">
-          <div className=" h-3/4 flex items-center ">
-            <div className="flex w-full  justify-center items-center flex-col ">
-              <div className=" flex items-start flex-col  w-2/3">
+        <div className="bg-white w-full flex flex-col h-screen">
+          <div className="h-3/4 flex items-center">
+            <div className="flex w-full justify-center items-center flex-col">
+              <div className="flex items-start flex-col w-2/3">
                 <span
                   className="font-semibold flex text-black underline cursor-pointer"
                   onClick={() => router.back()}
@@ -75,4 +74,13 @@ const CarMileagePage = () => {
   );
 };
 
+const CarMileagePage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CarMileagePageContent />
+    </Suspense>
+  );
+};
+
 export default CarMileagePage;
+
