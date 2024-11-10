@@ -7,7 +7,7 @@ const page = () => {
   return (
     <div className="bgcar h-screen w-screen sm:overflow-hidden">
       <div className="flex h-[30%]">
-        <div className="h-full w-[30%] flex justify-start">
+        <div className="sm:h-full h-44 w-[40%]  sm:w-[30%] flex justify-start">
           <Image
             src="/ballons.png"
             alt="Car with clouds"
@@ -23,15 +23,16 @@ const page = () => {
           <button>More</button>
           <button>Dealer</button>
         </div>
-        <div className="text-white justify-center  flex items-center w-[20%] text-sm sm:text-xl font-bold gap-3 p-2 sm:p-5">
+        <div className="text-white justify-center  flex flex-col  sm:flex-row items-center w-[20%] text-sm sm:text-xl font-bold gap-3 p-2 sm:p-5">
          <img className="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="Rounded avatar" />
           <button>Login</button>
         </div>
       </div>
-      <div className="h-full flex">
-        <div className="h-[70%] flex w-[60%] mt-10 flex-col">
+      <div className="h-full flex flex-col sm:flex-row
+      ">
+        <div className="sm:h-[70%] flex w-[100%] h-[100%] sm:w-[60%] mt-10 flex-col ">
           <div className="flex justify-center ml-14 font-bold flex-col">
-            <span className="text-white  sm:text-4xl font-sans md:text-5xl lg:text-7xl">
+            <span className="text-white text-lg sm:text-4xl font-sans md:text-5xl lg:text-7xl">
               Get The Most For Your Car with Car Clouds
             </span>
             <h3 className="font-thin text-white text-sm md:text-xl">
@@ -42,14 +43,14 @@ const page = () => {
 
           <div className="justify-center flex h-fit  ">
             <div className="bg-gray-200 shadow-xl  sm:h-40 mt-10 flex flex-col rounded-lg w-[90%] p-6">
-              <span className="text-black text-lg md:text-xl font-semibold">
+              <span className="text-black text-2xl md:text-xl font-semibold">
                 Your vehicle registration
               </span>
               <div className="flex gap-4 p-2 sm:p-0 mt-5 md:flex-row flex-col">
                 <input
                   type="text"
                   placeholder="ENTER REG"
-                  className="w-[10rem] md:w-[18rem] lg:w-[22rem] bg-white text-lg md:text-xl border-1 text-black border-slate-400 placeholder:font-bold placeholder:text-2xl md:placeholder:text-3xl lg:placeholder:text-4xl placeholder:text-center placeholder:font-serif h-14 rounded-md"
+                  className="w-[18rem] md:w-[18rem] lg:w-[22rem] bg-white text-lg md:text-xl border-1 text-black border-slate-400 placeholder:font-bold placeholder:text-2xl md:placeholder:text-3xl lg:placeholder:text-4xl placeholder:text-center placeholder:font-serif h-14 rounded-md"
                 />
                 <div className="bg-yellow-500 flex rounded-lg relative w-fit">
                   <button className="bg-yellow-500 h-14 rounded-xl text-black font-bold text-lg md:text-2xl w-[10rem] md:w-[18rem] lg:w-[22rem]">
@@ -77,7 +78,7 @@ const page = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden h-80 w-80 flex justify-end sm:h-[70%] sm:w-[40%]">
+        <div className="overflow-hidden  flex justify-end h-[90%] sm:h-[70%] sm:w-[40%]">
           <Image
             src="/car.png"
             alt="Car with clouds"
