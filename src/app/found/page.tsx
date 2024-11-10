@@ -1,11 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { FaCircleArrowRight } from "react-icons/fa6";
 
-const FoundPage = () => {
+const CarMileagePageContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const vehicleNumber = searchParams.get("vehicle_number");
@@ -102,4 +102,14 @@ const FoundPage = () => {
   );
 };
 
+
+const FoundPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CarMileagePageContent />
+    </Suspense>
+  );
+};
+
 export default FoundPage;
+
