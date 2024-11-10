@@ -1,11 +1,13 @@
 "use client";
-import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 import { FaCircleArrowRight } from "react-icons/fa6";
 
 const Page = () => {
   const [vehicleNumber, setVehicleNumber] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control mobile menu visibility
   const router = useRouter();
 
   const handleInputChange = (e) => {
@@ -21,56 +23,96 @@ const Page = () => {
 
   return (
     <div className="bgcar h-screen w-screen sm:overflow-hidden">
-      <div className="flex h-[30%]">
-        <div className="sm:h-full h-44 w-[40%]  sm:w-[30%] flex justify-start">
-          <Image
-            src="/ballons.png"
-            alt="Car with clouds"
-            width={350}
-            height={350}
-            className="pl-10"
-          />
+      <div className="flex h-[30%] items-center justify-between px-4 sm:px-10">
+        <Image
+          src="/ballons.png"
+          alt="Car with clouds"
+          width={300}
+          height={350}
+          className="pl-10 sm:h-full sm:w-auto"
+        />
+
+        {/* Mobile Menu Toggle Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="sm:hidden text-white text-3xl mr-5"
+        >
+          <IoMdMenu className="pointer text-4xl" />
+        </button>
+
+        {/* Mobile Menu - Visible only on mobile */}
+        <div
+          className={`${
+            isMenuOpen ? "flex" : "hidden"
+          } absolute top-10 right-24 bg-gray-300 text-sm rounded-lg border-4 border-blue-200 text-center items-center text-black flex-col gap-2 p-4 w-[35%] sm:hidden`}
+        >
+          <div className="flex items-center gap-3 mt-0 border-b-2 font-semibold">
+            <img
+              className="w-10 h-10 rounded-full"
+              src="/docs/images/people/profile-picture-5.jpg"
+              alt="avatar"
+            />
+            <button className="hover:cursor-pointer hover:font-semibold p-1 rounded-full hover:bg-gray-200">
+              Login
+            </button>
+          </div>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            How it works
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            Tools
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            Sell my car
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            More
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            Dealer
+          </button>
         </div>
-        <div className="text-white justify-center flex sm:flex-row flex-col items-center w-32 sm:w-[55%] gap-2 sm:gap-6 p-2 sm:p-10 text-sm sm:text-xl font-bold">
+
+        {/* Desktop layout of menu items - Visible only on desktop */}
+        <div className="hidden sm:flex text-white flex-row items-center gap-6 text-xl font-bold p-10">
           <button>How it works</button>
           <button>Tools</button>
           <button>Sell my car</button>
           <button>More</button>
           <button>Dealer</button>
-        </div>
-        <div className="text-white justify-center  flex flex-col  sm:flex-row items-center w-[20%] text-sm sm:text-xl font-bold gap-3 p-2 sm:p-5">
-          <img
-            className="w-10 h-10 rounded-full"
-            src="/docs/images/people/profile-picture-5.jpg"
-            alt="Rounded avatar"
-          />
-          <button>Login</button>
+          <div className="flex items-center gap-3">
+            <img
+              className="w-10 h-10 rounded-full"
+              src="/docs/images/people/profile-picture-5.jpg"
+              alt="Rounded avatar"
+            />
+            <button>Login</button>
+          </div>
         </div>
       </div>
-      <div
-        className="h-full flex flex-col sm:flex-row
-      "
-      >
+
+      {/* Remaining content */}
+      <div className="h-full flex flex-col sm:flex-row">
         <div className="sm:h-[70%] flex w-[100%] h-[100%] sm:w-[60%] mt-10 flex-col ">
           <div className="flex justify-center ml-14 font-bold flex-col">
-            <span className="text-white text-lg sm:text-4xl font-sans md:text-5xl lg:text-7xl">
+            <span className="text-white text-xl mr-1 sm:text-4xl font-sans md:text-5xl lg:text-7xl">
               Get The Most For Your Car with Car Clouds
             </span>
-            <h3 className="font-thin text-white text-sm md:text-xl">
+            <h3 className="font-thin pt-1 text-white text-sm sm:text-xl">
               Most Car Cloud sellers surveyed got an average £1,000 more vs part
               exchange quotes.
             </h3>
           </div>
 
-          <div className="justify-center flex h-fit  ">
+          <div className="justify-center flex sm:h-fit">
             <form
               onSubmit={handleSubmit}
-              className="bg-gray-200 shadow-xl  sm:h-40 mt-10 flex flex-col rounded-lg w-[90%] p-6"
+              className="bg-gray-200 shadow-xl sm:h-40 mt-10 flex flex-col rounded-lg w-[90%] p-6"
             >
-              <span className="text-black text-2xl md:text-xl font-semibold">
+              <span className="text-black text-center sm:text-left text-xl md:text-xl font-semibold">
                 Your vehicle registration
               </span>
-              <div className="flex gap-4 p-2 sm:p-0 mt-5 md:flex-row flex-col">
+              <div className="flex gap-4 p-0 sm:p-0 mt-5 md:flex-row flex-col">
                 <input
                   type="text"
                   placeholder="ENTER REG"
@@ -90,8 +132,8 @@ const Page = () => {
               </div>
             </form>
           </div>
-          <div className="text-black text-lg sm:text-2xl flex  justify-center h-full mt-5">
-            <div className="h-fit flex  items-center p-4 flex-col sm:flex-row sm:w-[90%] font-sans">
+          <div className="text-black text-lg sm:text-2xl flex justify-center h-full mt-5">
+            <div className="h-fit flex items-center p-4 flex-col sm:flex-row sm:w-[90%] font-sans">
               <span>
                 Rated <strong>4.5/5</strong> from <strong>61,506</strong>{" "}
                 reviews
@@ -101,13 +143,13 @@ const Page = () => {
                 alt="Trustpilot logo"
                 width={300}
                 height={50}
-                className=" sm:ml-2 mt-1" // Adds spacing between the text and image
+                className="sm:ml-2 mt-1"
               />
             </div>
           </div>
         </div>
 
-        <div className="overflow-hidden  flex justify-end h-[90%] sm:h-[70%] sm:w-[40%]">
+        <div className="overflow-hidden flex justify-end h-[90%] sm:h-[70%] sm:w-[40%]">
           <Image
             src="/car.png"
             alt="Car with clouds"
