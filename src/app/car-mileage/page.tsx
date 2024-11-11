@@ -48,7 +48,6 @@ const CarMileagePageContent = () => {
       ...vehicleData,
       mileageEstimate, // Use mileageEstimate instead of mileageEst
     };
-    const data = encodeURIComponent(JSON.stringify(updatedVehicleData));
     router.push(`/details?vehicleNumber=${vehicleNumber}`);
   };
 
