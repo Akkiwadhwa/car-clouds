@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState,Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaCircleArrowRight } from "react-icons/fa6";
@@ -114,4 +114,13 @@ const DetailsPage = () => {
   );
 };
 
-export default DetailsPage;
+const CarMileagePage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <DetailsPage />
+    </Suspense>
+  );
+};
+
+export default CarMileagePage;
+

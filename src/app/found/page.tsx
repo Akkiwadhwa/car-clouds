@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowLeft } from "react-icons/md";
@@ -118,8 +118,13 @@ const CarMileagePageContent = () => {
   );
 };
 
-const FoundPage = () => {
-  return <CarMileagePageContent />;
+const CarMileagePage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CarMileagePageContent />
+    </Suspense>
+  );
 };
 
-export default FoundPage;
+export default CarMileagePage;
+
