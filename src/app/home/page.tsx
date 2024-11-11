@@ -95,21 +95,21 @@ const Page = () => {
       <div className="smh-full h-fit flex flex-col sm:flex-row">
         <div className="sm:h-[70%] flex w-[100%] h-[100%] sm:w-[60%] mt-10 flex-col ">
           <div className="flex justify-center ml-14 font-bold flex-col">
-            <span className="text-white text-3xl mr-1 sm:text-4xl font-sans md:text-5xl lg:text-7xl">
+            <span className="text-white text-4xl mr-1 sm:text-4xl font-sans md:text-5xl lg:text-7xl">
               Get The Most For Your Car with Car Clouds
             </span>
-            <h3 className="font-thin pt-1 sm:mt-0 mt-5 text-white text-lg sm:text-xl">
+            <h3 className="font-thin pt-1 sm:mt-0 mt-5 text-white  sm:pr-0 pr-8 text-xl sm:text-xl">
               Most Car Cloud sellers surveyed got an average £1,000 more vs part
               exchange quotes.
             </h3>
           </div>
 
-          <div className="justify-center flex sm:h-fit sm:mt-0 mt-10  " >
+          <div className="justify-center flex sm:h-fit sm:mt-0 mt-2  " >
             <form
               onSubmit={handleSubmit}
-              className="bg-gray-200 shadow-xl sm:h-40 mt-10 flex flex-col rounded-lg w-[90%] p-6"
+              className="sm:bg-gray-200  shadow-xl sm:h-40 mt-10 flex items-center sm:items-start flex-col rounded-lg w-[90%] p-6"
             >
-              <span className="text-black text-center sm:text-left text-xl md:text-xl font-semibold">
+              <span className="sm:text-black  text-left text-xl md:text-xl font-semibold">
                 Your vehicle registration
               </span>
               <div className="flex gap-4 p-0 sm:p-0 mt-5 md:flex-row flex-col">
@@ -118,21 +118,21 @@ const Page = () => {
                   placeholder="ENTER REG"
                   value={vehicleNumber}
                   onChange={handleInputChange}
-                  className="w-[18rem] md:w-[18rem] lg:w-[22rem] bg-white text-lg md:text-xl border-1 text-black border-slate-400 placeholder:font-bold placeholder:text-2xl md:placeholder:text-3xl lg:placeholder:text-4xl placeholder:text-center placeholder:font-serif h-14 rounded-md"
+                  className="w-[18rem] md:w-[18rem] lg:w-[22rem] bg-white text-lg md:text-xl border-2 text-black border-gray-400 placeholder:font-bold placeholder:text-2xl md:placeholder:text-3xl lg:placeholder:text-4xl placeholder:text-center placeholder:font-serif h-14 rounded-md"
                 />
-                <div className="bg-yellow-500 flex rounded-lg relative w-fit">
+                <div className="bg-yellow-500  flex rounded-lg relative w-fit">
                   <button
                     type="submit"
-                    className="bg-yellow-500 h-14 rounded-xl text-black font-bold text-lg md:text-2xl w-[10rem] md:w-[18rem] lg:w-[22rem]"
+                    className="bg-yellow-500 h-14 rounded-xl text-black font-bold text-2xl md:text-2xl w-[18rem] md:w-[18rem] lg:w-[22rem]"
                   >
                     Start Now
-                    <FaCircleArrowRight className="right-3 bottom-4 text-xl md:text-2xl absolute" />
+                    <FaCircleArrowRight className="right-3 bottom-4 text-2xl md:text-2xl absolute" />
                   </button>
                 </div>
               </div>
             </form>
           </div>
-          <div className="text-black text-lg sm:text-2xl flex justify-center h-full mt-7">
+          <div className="text-black text-2xl sm:text-2xl flex justify-center h-full mt-2">
             <div className="h-fit flex items-center sm:mt-0 mt-10 p-4 flex-col sm:flex-row sm:w-[90%] font-sans">
               <span>
                 Rated <strong>4.5/5</strong> from <strong>61,506</strong>{" "}
@@ -143,7 +143,7 @@ const Page = () => {
                 alt="Trustpilot logo"
                 width={300}
                 height={50}
-                className="sm:ml-2 mt-1"
+                className="sm:ml-2 mt-2"
               />
             </div>
           </div>
