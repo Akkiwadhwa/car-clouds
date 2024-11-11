@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowLeft } from "react-icons/md";
@@ -8,15 +8,52 @@ import { FaCircleArrowRight } from "react-icons/fa6";
 
 const CarMileagePageContent = () => {
   const searchParams = useSearchParams();
-  const data = searchParams.get("data");
-  const vehicleData = data ? JSON.parse(decodeURIComponent(data)) : null;
-
+  const vehicleNumber = searchParams.get("vehicleNumber");
   const router = useRouter();
 
+  const [vehicleData, setVehicleData] = useState(null);
+  const [mileageEstimate, setMileageEstimate] = useState("");
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchVehicleData = async () => {
+      try {
+        // Fetch vehicle data including mileage
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_mileage?vehicle_number=${vehicleNumber}`
+        );
+        if (!response.ok) throw new Error("Failed to fetch vehicle data");
+
+        const data = await response.json();
+        setVehicleData(data);
+
+        // Get the last recorded mileage from the response
+        const lastMileage = data.summary?.lastRecordedMileage || "";
+        setMileageEstimate(lastMileage);
+
+        setError(null);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    if (vehicleNumber) {
+      fetchVehicleData();
+    }
+  }, [vehicleNumber]);
+
   const handleContinue = () => {
-    // const data = encodeURIComponent(JSON.stringify(vehicleData));
-    router.push(`/estimate`);
+    // Update vehicleData with the mileageEstimate
+    const updatedVehicleData = {
+      ...vehicleData,
+      mileageEstimate, // Use mileageEstimate instead of mileageEst
+    };
+    const data = encodeURIComponent(JSON.stringify(updatedVehicleData));
+    router.push(`/details?vehicleNumber=${vehicleNumber}`);
   };
+
+  if (error) return <p className="text-red-500 mt-4">{error}</p>;
+  if (!vehicleData) return <p>Loading...</p>;
 
   return (
     <div className="w-full h-screen">
@@ -38,8 +75,9 @@ const CarMileagePageContent = () => {
                 <div className="flex items-center relative mt-5">
                   <input
                     type="text"
-                    value={vehicleData.mileageEst}
-                    className="w-96 bg-white text-black border shadow-lg shadow-cyan-200 h-10 rounded-md"
+                    value={mileageEstimate}
+                    onChange={(e) => setMileageEstimate(e.target.value)}
+                    className="w-96 bg-white text-black border shadow-lg shadow-cyan-200 h-10 rounded-md pl-2"
                   />
                   <FcOk className="text-3xl absolute right-1" />
                 </div>
@@ -49,10 +87,13 @@ const CarMileagePageContent = () => {
               </div>
             </div>
           </div>
-          <div className=" h-52 flex justify-center items-end">
+          <div className="h-52 flex justify-center items-end">
             <div className="flex justify-center mt-auto w-3/4 items-center relative align-middle h-12">
-              <button onClick={handleContinue} className="bg-yellow-500 h-12 rounded-xl mb-3 text-black font-bold text-xl w-full">
-                continue
+              <button
+                onClick={handleContinue}
+                className="bg-yellow-500 h-12 rounded-xl mb-3 text-black font-bold text-xl w-full"
+              >
+                Continue
                 <FaCircleArrowRight className="bottom-4 right-6 text-2xl absolute" />
               </button>
             </div>
@@ -75,12 +116,7 @@ const CarMileagePageContent = () => {
 };
 
 const CarMileagePage = () => {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <CarMileagePageContent />
-    </Suspense>
-  );
+  return <CarMileagePageContent />;
 };
 
 export default CarMileagePage;
-
