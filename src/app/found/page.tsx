@@ -15,15 +15,18 @@ const CarMileagePageContent = () => {
   useEffect(() => {
     const fetchVehicleData = async () => {
       try {
+        console.log('Fetching data for vehicle number:', vehicleNumber);
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_data?vehicle_number=${vehicleNumber}`
         );
         if (!response.ok) throw new Error("Failed to fetch vehicle data");
 
         const data = await response.json();
-        setVehicleData(data.vehicle);
+        console.log('Received data:', data);
+        setVehicleData(data);
         setError(null);
       } catch (error) {
+        console.error('Error fetching vehicle data:', error);
         setError(error.message);
       }
     };
@@ -34,10 +37,8 @@ const CarMileagePageContent = () => {
   }, [vehicleNumber]);
 
   const handleContinue = () => {
-    const data = encodeURIComponent(JSON.stringify(vehicleData));
-    router.push(`/car-mileage?data=${data}`);
+    router.push(`/car-mileage?vehicleNumber=${vehicleNumber}`);
   };
-  
 
   if (error) return <p className="text-red-500 mt-4">{error}</p>;
   if (!vehicleData) return <p>Loading...</p>;
@@ -53,7 +54,8 @@ const CarMileagePageContent = () => {
                   className="font-semibold flex text-black underline cursor-pointer"
                   onClick={() => router.back()}
                 >
-                  <MdKeyboardArrowLeft className="mt-1 text-black text-lg font-semibold" /> Back
+                  <MdKeyboardArrowLeft className="mt-1 text-black text-lg font-semibold" />{" "}
+                  Back
                 </span>
 
                 <h1 className="text-4xl text-black font-bold mt-5">
@@ -61,15 +63,29 @@ const CarMileagePageContent = () => {
                 </h1>
                 <div className="flex items-center relative gap-4 mt-5 flex-col">
                   <span className="bg-yellow-400 pl-3 text-xl pr-3 font-bold font-sans text-black rounded-lg">
-                    {vehicleData.vrm_pretty}
+                    {vehicleData.registrationNumber}
                   </span>
                 </div>
                 <span className="text-black text-lg mt-4 font-semibold flex items-center">
-                  <img src="/bmw-logo (2).svg" alt="BMW logo" className="w-8 h-8 mr-2" />
-                  {vehicleData.make.display_name} {vehicleData.genericModel.name} ({vehicleData.manufactureYear}) {vehicleData.model}
+                  <img
+                    src="/bmw-logo (2).svg"
+                    alt="BMW logo"
+                    className="w-8 h-8 mr-2"
+                  />
+                  {vehicleData.make} {vehicleData.model} (
+                  {vehicleData.yearOfManufacture}) {vehicleData.colour}
                 </span>
                 <p className="text-gray-600 ml-10 text-sm -mt-1">
-                  {vehicleData.transmission} &#8226; {vehicleData.fuel} &#8226; {vehicleData.colour}
+                  {vehicleData.fuelType} &#8226; {vehicleData.engineCapacity} cc
+                  &#8226; {vehicleData.colour}
+                </p>
+                <p className="text-gray-600 ml-10 text-sm mt-2">
+                  Tax Status: {vehicleData.tax.taxStatus}, Due:{" "}
+                  {vehicleData.tax.taxDueDate} ({vehicleData.tax.days} days)
+                </p>
+                <p className="text-gray-600 ml-10 text-sm">
+                  MOT Status: {vehicleData.mot.motStatus}, Due:{" "}
+                  {vehicleData.mot.motDueDate} ({vehicleData.mot.days} days)
                 </p>
               </div>
             </div>
@@ -102,8 +118,7 @@ const CarMileagePageContent = () => {
   );
 };
 
-
-const FoundPage = () => {
+const CarMileagePage = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <CarMileagePageContent />
@@ -111,5 +126,5 @@ const FoundPage = () => {
   );
 };
 
-export default FoundPage;
+export default CarMileagePage;
 

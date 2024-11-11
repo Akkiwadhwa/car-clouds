@@ -1,12 +1,53 @@
+"use client";
+
+import React, { useState, useEffect ,Suspense} from "react";
 import Image from "next/image";
-import React from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { FaArrowRight } from "react-icons/fa6";
 
+const EstimatePage = () => {
+  const searchParams = useSearchParams();
+  const dataParam = searchParams.get("data");
+  const vehicleData = dataParam ? JSON.parse(decodeURIComponent(dataParam)) : null;
 
-const page = () => {
+  const [valuationData, setValuationData] = useState(null);
+  const [error, setError] = useState(null);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchValuationData = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_value?vehicle_number=${vehicleData.vehicleNumber}`
+        );
+        if (!response.ok) throw new Error("Failed to fetch valuation data");
+
+        const data = await response.json();
+        setValuationData(data);
+        setError(null);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    if (vehicleData) {
+      fetchValuationData();
+    }
+  }, [vehicleData]);
+
+  if (error) return <p className="text-red-500 mt-4">{error}</p>;
+  if (!valuationData) return <p>Loading...</p>;
+
+  // Format the price with commas
+  const formattedPrice = new Intl.NumberFormat('en-GB').format(
+    valuationData.ValuationList.PartExchange
+  );
+
   return (
-    <div className="bgcar2  h-screen w-screen overflow-hidden">
+    <div className="bgcar2 h-screen w-screen overflow-hidden">
       <div className="flex h-[30%]">
+        {/* Header Section */}
         <div className="h-full w-[30%] flex justify-start items-baseline mt-8">
           <Image
             src="/ballons.png"
@@ -33,10 +74,10 @@ const page = () => {
         </div>
       </div>
 
-      <div className="h-[60%]  ">
-        <div className="bg-white max-w-3xl h-full p-4  mx-auto  m-5 justify-center flex flex-col items-center rounded-xl shadow-lg space-y-4 text-center">
+      <div className="h-[60%]">
+        <div className="bg-white max-w-3xl h-full p-4 mx-auto m-5 justify-center flex flex-col items-center rounded-xl shadow-lg space-y-4 text-center">
           {/* Top Section */}
-          <div className="bg-cyan-100 text-gray-600 py-4 w-[80%]  rounded-md">
+          <div className="bg-cyan-100 text-gray-600 py-4 w-[80%] rounded-md">
             <p className="font-bold text-2xl">
               Verified dealers want your car!
             </p>
@@ -46,23 +87,23 @@ const page = () => {
           </div>
 
           {/* Price Section */}
-          <div className=" w-full">
+          <div className="w-full">
             <p className="text-gray-600 font-semibold">
               Your estimated sale price:
             </p>
             <p className="text-7xl text-black font-extrabold">
-              £14,615 <span className="text-lg">*</span>
+              £{formattedPrice} <span className="text-lg">*</span>
             </p>
           </div>
 
           {/* Slider Section */}
-          <div className=" w-full pr-6 pl-6">
+          <div className="w-full pr-6 pl-6">
             <div className="flex justify-between text-sm font-semibold text-gray-600">
               <span>Well-loved</span>
               <span>Showroom ready</span>
             </div>
-            <div className="relative h-2 mt-2  bg-gradient-to-r from-yellow-400 to-green-500 mb-1 rounded-full">
-              <div className="absolute left-1/2 -translate-x-1/2 w-6 h-6 -mt-2  bg-gradient-to-r from-yellow-400 to-green-500  bg-green-600 rounded-full border border-white"></div>
+            <div className="relative h-2 mt-2 bg-gradient-to-r from-yellow-400 to-green-500 mb-1 rounded-full">
+              <div className="absolute left-1/2 -translate-x-1/2 w-6 h-6 -mt-2 bg-green-600 rounded-full border border-white"></div>
             </div>
           </div>
 
@@ -71,14 +112,17 @@ const page = () => {
             <p className="font-extrabold text-gray-800 text-xl">
               Think your car’s worth more?
             </p>
-            <p className="text-gray-600  font-semibold text-lg">
+            <p className="text-gray-600 font-semibold text-lg">
               We get it. Your car’s special - share its specs with us and let’s
               talk price.
             </p>
           </div>
 
           {/* Button Section */}
-          <button className="bg-yellow-500 hover:bg-yellow-500 text-black py-3 px-4 rounded-lg text-xl font-bold flex items-center justify-center gap-2 w-[28rem]">
+          <button
+            className="bg-yellow-500 hover:bg-yellow-500 text-black py-3 px-4 rounded-lg text-xl font-bold flex items-center justify-center gap-2 w-[28rem]"
+            onClick={() => router.push(`/home`)}
+          >
             Tell us more
             <FaArrowRight />
           </button>
@@ -88,4 +132,14 @@ const page = () => {
   );
 };
 
-export default page;
+
+const CarMileagePage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <EstimatePage />
+    </Suspense>
+  );
+};
+
+export default CarMileagePage;
+
