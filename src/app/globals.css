@@ -14,10 +14,14 @@
   }
 }
 
+
+
+
+
 body {
   color: var(--foreground);
   
-  font-family: Arial, Helvetica, sans-serif;
+font-family: 'Lufga', sans-serif;
 }
 
 .bgimg {
@@ -37,6 +41,12 @@ body {
   /* Adjust size as needed */
   background-repeat: no-repeat;
   background-position: top;
+}
+
+@media (max-width: 640px) {
+  .bgcar {
+    background-size: 100% 60vh; /* Reduced height for small screens */
+  }
 }
 
 .bgcar2 {
