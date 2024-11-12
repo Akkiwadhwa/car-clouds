@@ -93,11 +93,11 @@ const Page = () => {
       {/* Remaining content */}
       <div className="smh-full h-fit flex  sm:flex-row">
         <div className="sm:h-[70%] flex w-[65%] h-[60%] sm:w-[60%] mt-10 flex-col ">
-          <div className="flex  justify-center items-center ml-5 sm:ml-14 font-bold flex-col">
-            <span className="text-white text-4xl sm:text-4xl font-sans  md:text-8xl lg:text-8xl">
+          <div className="flex  justify-center items-center sm:items-left  ml-5 sm:ml-14 font-bold flex-col">
+            <span className="text-white text-4xl sm:text-4xl font-sans  md:text-8xl lg:text-6xl">
               Get The Most For Your Car 
             </span>
-            <h3 className="font-thin pt-1 sm:mt-0 mt-3 text-white md:-ml-10 md:mt-10 h-fit sm:pr-0 pr-8 text-sm sm:text-2xl">
+            <h3 className="font-normal pt-1 sm:mt-5 mt-3 sm:ml-14 text-white    h-fit sm:pr-0 pr-8 text-xs sm:text-xl">
               Most Car Cloud sellers surveyed got an average £1,000 more vs part
               exchange quotes.
             </h3>
@@ -106,26 +106,26 @@ const Page = () => {
           <div className="justify-center  flex sm:h-fit sm:mt-0   ">
             <form
               onSubmit={handleSubmit}
-              className="bg-gray-200  shadow-xl sm:h-40 sm:mt-10 mt-10 ml-32 sm:ml-0 flex sm:items-start flex-col rounded-lg sm:w-[90%] sm:p-6 p-4"
+              className="bg-gray-200  shadow-xl sm:h-40 sm:mt-10 mt-10 ml-32 sm:ml-0 flex sm:items-start flex-col rounded-lg sm:w-[90%] sm:p-6 p-2"
             >
-              <span className="text-black text-left text-xl md:text-xl font-semibold">
+              <span className="text-black text-left text-sm md:text-xl font-semibold">
                 Your vehicle registration
               </span>
-              <div className="flex gap-4 p-0 sm:p-0 mt-5 md:flex-row flex-col">
+              <div className="flex gap-4 p-0 sm:p-0 sm:mt-5 mt-2 md:flex-row flex-col">
                 <input
                   type="text"
                   placeholder="ENTER REG"
                   value={vehicleNumber}
                   onChange={handleInputChange}
-                  className="w-[20rem] md:w-[18rem] lg:w-[22rem] bg-white text-5xl font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-bold placeholder:text-2xl md:placeholder:text-3xl  lg:placeholder:text-4xl placeholder:text-center placeholder:p-1 h-14 rounded-md"
+                  className="w-[20rem] md:w-[18rem] lg:w-[22rem] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-4xl placeholder:text-center  h-8 sm:h-14 rounded-md"
                 />
                 <div className="bg-yellow-500  flex rounded-lg relative w-fit">
                   <button
                     type="submit"
-                    className="bg-yellow-500 h-12 sm:h-14 rounded-xl text-black font-bold text-2xl md:text-2xl w-[20rem] md:w-[18rem] lg:w-[22rem]"
+                    className="bg-yellow-500 h-8 sm:h-14 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[18rem] lg:w-[22rem]"
                   >
                     Start Now
-                    <FaCircleArrowRight className="right-3 bottom-3 sm:bottom-4 text-2xl md:text-2xl absolute" />
+                    <FaCircleArrowRight className="right-3 bottom-2 sm:bottom-4 text-sm md:text-2xl absolute" />
                   </button>
                 </div>
               </div>
@@ -148,13 +148,13 @@ const Page = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden flex  justify-start sm:justify-end  h-60 w-[100%] sm:h-[70%] sm:w-[40%]">
+        <div className="overflow-hidden flex  justify-end sm:justify-end  h-52 w-[100%] sm:h-[70%] sm:w-[40%]">
           <Image
             src="/car.png"
             alt="Car with clouds"
             width={700}
             height={80}
-            className="sm:pl-10"
+            className="sm:pl-10 "
           />
         </div>
       </div>
