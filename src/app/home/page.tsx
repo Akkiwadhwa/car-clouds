@@ -25,6 +25,7 @@ const Page = () => {
     <div className="bgcar h-screen w-screen sm:overflow-hidden overflow-x-hidden">
       <div className="flex h-[15%] sm:h-[30%] items-start pt-3 sm:pt:0  sm:items-center justify-between px-0  sm:px-10">
         <Image
+          id='ballons'
           src="/ballons.png"
           alt="Car with clouds"
           width={300}
@@ -49,7 +50,7 @@ const Page = () => {
           <div className="flex items-center mt-5 sm:mt-0 gap-3">
             <img
               className="w-10 h-10 rounded-full"
-              src="/docs/images/people/profile-picture-5.jpg"
+              src="/blank_img.webp"
               alt="Rounded avatar"
             />
             <button>Login</button>
@@ -93,11 +94,11 @@ const Page = () => {
       {/* Remaining content */}
       <div className="smh-full h-fit flex  sm:flex-row">
         <div className="sm:h-[70%] flex w-[65%] h-[60%] sm:w-[60%] mt-10 flex-col ">
-          <div className="flex  justify-center items-center sm:items-left  ml-5 sm:ml-14 font-bold flex-col">
+          <div className="flex  justify-center items-center sm:items-left  ml-10 sm:ml-14 font-bold flex-col">
             <span className="text-white text-4xl sm:text-4xl font-sans  md:text-8xl lg:text-6xl">
               Get The Most For Your Car 
             </span>
-            <h3 className="font-normal pt-1 sm:mt-5 mt-3 sm:ml-14 text-white    h-fit sm:pr-0 pr-8 text-xs sm:text-xl">
+            <h3 id='smallheading' className="font-normal pt-1 sm:mt-5 mt-3 sm:ml-14 text-white h-fit sm:pr-0 pr-8 text-xs sm:text-xl">
               Most Car Cloud sellers surveyed got an average £1,000 more vs part
               exchange quotes.
             </h3>
@@ -148,7 +149,7 @@ const Page = () => {
           </div>
         </div>
 
-        <div className="overflow-hidden flex  justify-end sm:justify-end  h-52 w-[100%] sm:h-[70%] sm:w-[40%]">
+        <div className="overflow-hidden flex  justify-end sm:justify-end h-52 w-[100%] sm:h-[70%] sm:w-[40%]" id='carimagehome'>
           <Image
             src="/car.png"
             alt="Car with clouds"

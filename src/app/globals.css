@@ -45,7 +45,7 @@ font-family: 'Lufga', sans-serif;
 
 @media (max-width: 640px) {
   .bgcar {
-    background-size: 100% 50vh; /* Reduced height for small screens */
+    background-size: 100% 45vh; /* Reduced height for small screens */
   }
 }
 
@@ -58,3 +58,26 @@ font-family: 'Lufga', sans-serif;
   background-repeat: no-repeat;
   background-position: top;
 }
+
+
+
+@media (max-width: 640px) { /* Mobile view */
+  #smallheading {
+    font-size: 0.6rem;
+    line-height: 1.2;
+    width: 250px;
+    margin-left: 30px;
+  }
+
+  #carimagehome{
+    /* width: 300px !important; */
+    margin-right: -50px !important;
+  }
+
+  #ballons{
+    width: 160px !important;
+  }
+
+
+}
+
