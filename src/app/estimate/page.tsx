@@ -16,36 +16,36 @@ const EstimatePage = () => {
   const [valuationData, setValuationData] = useState(null);
   const [error, setError] = useState(null);
 
-  // const router = useRouter();
+  const router = useRouter();
 
-  // useEffect(() => {
-  //   const fetchValuationData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_value?vehicle_number=${vehicleData.vehicleNumber}`
-  //       );
-  //       if (!response.ok) throw new Error("Failed to fetch valuation data");
+  useEffect(() => {
+    const fetchValuationData = async () => {
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/get_value?vehicle_number=${vehicleData.vehicleNumber}`
+        );
+        if (!response.ok) throw new Error("Failed to fetch valuation data");
 
-  //       const data = await response.json();
-  //       setValuationData(data);
-  //       setError(null);
-  //     } catch (error) {
-  //       setError(error.message);
-  //     }
-  //   };
+        const data = await response.json();
+        setValuationData(data);
+        setError(null);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
 
-  //   if (vehicleData) {
-  //     fetchValuationData();
-  //   }
-  // }, [vehicleData]);
+    if (vehicleData) {
+      fetchValuationData();
+    }
+  }, [vehicleData]);
 
-  // if (error) return <p className="text-red-500 mt-4">{error}</p>;
-  // if (!valuationData) return <p>Loading...</p>;
+  if (error) return <p className="text-red-500 mt-4">{error}</p>;
+  if (!valuationData) return <p>Loading...</p>;
 
-  // // Format the price with commas
-  // const formattedPrice = new Intl.NumberFormat('en-GB').format(
-  //   valuationData.ValuationList.PartExchange
-  // );
+  // Format the price with commas
+  const formattedPrice = new Intl.NumberFormat('en-GB').format(
+    valuationData.ValuationList.PartExchange
+  );
 
   return (
     <div className="bgcar2 h-screen w-screen overflow-hidden">

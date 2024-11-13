@@ -96,7 +96,7 @@ const Page = () => {
         <div className="sm:h-[70%] flex w-[65%] h-[60%] sm:w-[60%] mt-10 flex-col ">
           <div className="flex  justify-center items-center sm:items-left   sm:ml-14 font-bold flex-col">
             <span className="text-white text-4xl sm:text-6xl ml-5 sm:ml-0  md:text-7xl lg:text-7xl">
-              Get The Most For Your Car 
+              Get The Most For Your Car with car clouds
             </span>
             <h3 id='smallheading' className="font-normal pt-1 sm:mt-3 mt-3  text-white h-fit sm:pr-0 pr-8 text-xs sm:text-xl">
               Most Car Cloud sellers surveyed got an average £1,000 more vs part
@@ -112,13 +112,13 @@ const Page = () => {
               <span className="text-black text-left text-sm md:text-xl font-semibold">
                 Your vehicle registration
               </span>
-              <div className="flex gap-4 p-0 sm:p-0 sm:mt-5 mt-2 md:flex-row flex-col">
+              <div className="flex gap-4 p-0 sm:p-0 sm:mt-2 md:flex-row flex-col">
                 <input
                   type="text"
                   placeholder="ENTER REG"
                   value={vehicleNumber}
                   onChange={handleInputChange}
-                  className="w-[20rem] md:w-[20rem] lg:w-[20rem] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
+                  className="w-[25rem] md:w-[25rem] lg:w-[25rem] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
                 />
                 <div className="bg-yellow-500  flex rounded-lg relative w-fit">
                   <button

@@ -102,7 +102,7 @@ const CarMileagePageContent = () => {
             </div>
           </div>
         </div>
-        <div className="w-2/3 bgimg h-screen flex items-center justify-center relative">
+        <div className="w-2/3 bgimg h-screen flex items-center justify-center relative" id='foundbg'>
           <div className="bg-transparent flex items-start justify-start mr-auto h-fit w-full">
             <Image
               src="/ballons.png"

@@ -15,39 +15,39 @@ const CarMileagePageContent = () => {
   const [mileageEstimate, setMileageEstimate] = useState("");
   const [error, setError] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchVehicleData = async () => {
-  //     try {
-  //       // Fetch vehicle data including mileage
-  //       const response = await fetch(
-  //         `https://carcloudstest.fabspot.co.uk:5000/api/get_mileage?vehicle_number=${vehicleNumber}`
-  //       );
-  //       if (!response.ok) throw new Error("Failed to fetch vehicle data");
+  useEffect(() => {
+    const fetchVehicleData = async () => {
+      try {
+        // Fetch vehicle data including mileage
+        const response = await fetch(
+          `https://carcloudstest.fabspot.co.uk:5000/api/get_mileage?vehicle_number=${vehicleNumber}`
+        );
+        if (!response.ok) throw new Error("Failed to fetch vehicle data");
 
-  //       const data = await response.json();
-  //       setVehicleData(data);
+        const data = await response.json();
+        setVehicleData(data);
 
-  //       // Get the last recorded mileage from the response
-  //       const lastMileage = data.summary?.lastRecordedMileage || "";
-  //       setMileageEstimate(lastMileage);
+        // Get the last recorded mileage from the response
+        const lastMileage = data.summary?.lastRecordedMileage || "";
+        setMileageEstimate(lastMileage);
 
-  //       setError(null);
-  //     } catch (error) {
-  //       setError(error.message);
-  //     }
-  //   };
+        setError(null);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
 
-  //   if (vehicleNumber) {
-  //     fetchVehicleData();
-  //   }
-  // }, [vehicleNumber]);
+    if (vehicleNumber) {
+      fetchVehicleData();
+    }
+  }, [vehicleNumber]);
 
-  // const handleContinue = () => {
-  //   router.push(`/details?vehicleNumber=${vehicleNumber}`);
-  // };
+  const handleContinue = () => {
+    router.push(`/details?vehicleNumber=${vehicleNumber}`);
+  };
 
-  // if (error) return <p className="text-red-500 mt-4">{error}</p>;
-  // if (!vehicleData) return <p>Loading...</p>;
+  if (error) return <p className="text-red-500 mt-4">{error}</p>;
+  if (!vehicleData) return <p>Loading...</p>;
 
   return (
     <div className="w-full h-screen">
@@ -58,7 +58,7 @@ const CarMileagePageContent = () => {
               <div className="flex items-start flex-col sm:w-2/3 w-full">
                 <span
                   className="font-semibold flex text-black underline cursor-pointer"
-                  // onClick={() => router.back()}
+                  onClick={() => router.back()}
                 >
                   <MdKeyboardArrowLeft className="mt-1 sm:mt-0
                    text-black sm:text-xl text-lg " /> Back
@@ -71,7 +71,7 @@ const CarMileagePageContent = () => {
                   <input
                     type="text"
                     value={mileageEstimate}
-                    // onChange={(e) => setMileageEstimate(e.target.value)}
+                    onChange={(e) => setMileageEstimate(e.target.value)}
                     className="sm:w-96 w-96 bg-white text-black border shadow-lg shadow-cyan-200 h-10 rounded-md sm:pl-2 ml-3 sm:ml-0"
                   />
                   <FcOk className="text-3xl absolute right-1" />
@@ -85,7 +85,7 @@ const CarMileagePageContent = () => {
           <div className="h-52 flex justify-center items-end">
             <div className="flex justify-center mt-auto sm:w-3/4 w-full items-center relative align-middle h-12">
               <button
-                // onClick={handleContinue}
+                onClick={handleContinue}
                 className="bg-yellow-500 h-12 rounded-xl mb-3 text-black font-bold text-xl sm:w-full w-96 "
               >
                 Continue

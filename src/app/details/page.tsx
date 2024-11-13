@@ -14,24 +14,24 @@ const DetailsPage = () => {
   const [phone, setPhone] = useState("");
   const [id, setId] = useState("");
 
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const handleContinue = () => {
-  //   // Include vehicleData and user inputs in the data to pass to the next page
-  //   const updatedData = {
-  //     vehicleNumber:vehicleNumber,
-  //     email:email,
-  //     name:name,
-  //     phone:phone,
-  //     id:id,
-  //   };
-  //   const dataString = encodeURIComponent(JSON.stringify(updatedData));
-  //   router.push(`/estimate?data=${dataString}`);
-  // };
+  const handleContinue = () => {
+    // Include vehicleData and user inputs in the data to pass to the next page
+    const updatedData = {
+      vehicleNumber:vehicleNumber,
+      email:email,
+      name:name,
+      phone:phone,
+      id:id,
+    };
+    const dataString = encodeURIComponent(JSON.stringify(updatedData));
+    router.push(`/estimate?data=${dataString}`);
+  };
 
-  // if (!vehicleNumber) {
-  //   return <p>Loading...</p>;
-  // }
+  if (!vehicleNumber) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="w-full h-screen overflow-x-hidden">
@@ -80,7 +80,7 @@ const DetailsPage = () => {
                 <div className="flex justify-center mt-6 w-full p-4 sm:p-0 sm:w-[45%] items-center relative align-middle h-12">
                   <button
                     className="bg-yellow-500 sm:h-10 h-8 rounded-lg sm:ml-0 ml-3  text-black font-semibold sm:font-bold sm:text-xl w-full"
-                    // onClick={handleContinue}
+                    onClick={handleContinue}
                   >
                     Continue
                     <FaCircleArrowRight className=" sm:bottom-3 bottom-4  right-6 text-lg sm:text-2xl absolute" />
