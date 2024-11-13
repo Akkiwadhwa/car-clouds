@@ -79,14 +79,6 @@ const CarMileagePageContent = () => {
                   {vehicleData.fuelType} &#8226; {vehicleData.engineCapacity} cc
                   &#8226; {vehicleData.colour}
                 </p>
-                <p className="text-gray-600 ml-10 text-sm mt-2">
-                  Tax Status: {vehicleData.tax.taxStatus}, Due:{" "}
-                  {vehicleData.tax.taxDueDate} ({vehicleData.tax.days} days)
-                </p>
-                <p className="text-gray-600 ml-10 text-sm">
-                  MOT Status: {vehicleData.mot.motStatus}, Due:{" "}
-                  {vehicleData.mot.motDueDate} ({vehicleData.mot.days} days)
-                </p>
               </div>
             </div>
           </div>
