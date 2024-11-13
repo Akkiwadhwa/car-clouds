@@ -23,7 +23,7 @@ const Page = () => {
 
   return (
     <div className="bgcar h-screen w-screen sm:overflow-hidden overflow-x-hidden">
-      <div className="flex h-[15%] sm:h-[30%] items-start pt-3 sm:pt:0  sm:items-center justify-between px-0  sm:px-10">
+      <div className="flex h-[15%] sm:h-[30%] items-start pt-1 sm:pt:0  sm:items-center justify-between px-0  sm:px-10">
         <Image
           id='ballons'
           src="/ballons.png"
@@ -49,7 +49,7 @@ const Page = () => {
 
           <div className="flex items-center mt-5 sm:mt-0 gap-3">
             <img
-              className="w-10 h-10 rounded-full"
+              className="sm:w-10 sm:h-10 h-7 w-7 rounded-full"
               src="/blank_img.webp"
               alt="Rounded avatar"
             />
@@ -95,10 +95,10 @@ const Page = () => {
       <div className="smh-full h-fit flex  sm:flex-row">
         <div className="sm:h-[70%] flex w-[65%] h-[60%] sm:w-[60%] mt-10 flex-col ">
           <div className="flex  justify-center items-center sm:items-left   sm:ml-14 font-bold flex-col">
-            <span className="text-white text-4xl sm:text-6xl ml-5 sm:ml-0  md:text-7xl lg:text-7xl">
+            <span className="text-white text-2xl sm:text-6xl ml-5 sm:ml-0  md:text-7xl lg:text-7xl">
               Get The Most For Your Car with car clouds
             </span>
-            <h3 id='smallheading' className="font-normal pt-1 sm:mt-3 mt-3  text-white h-fit sm:pr-0 pr-8 text-xs sm:text-xl">
+            <h3  className="font-normal pl-5 pt-1 sm:mt-3 mt-2  sm:pl-0   text-white h-fit sm:pr-0 pr-5 text-xs sm:text-xl">
               Most Car Cloud sellers surveyed got an average £1,000 more vs part
               exchange quotes.
             </h3>
@@ -118,7 +118,7 @@ const Page = () => {
                   placeholder="ENTER REG"
                   value={vehicleNumber}
                   onChange={handleInputChange}
-                  className="w-[25rem] md:w-[25rem] lg:w-[25rem] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
+                  className="w-[20rem] md:w-[25rem] lg:w-[25rem] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
                 />
                 <div className="bg-yellow-500  flex rounded-lg relative w-fit">
                   <button

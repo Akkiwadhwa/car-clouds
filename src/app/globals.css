@@ -45,7 +45,14 @@ font-family: 'Lufga', sans-serif;
 
 @media (max-width: 640px) {
   .bgcar {
-    background-size: 100% 45vh; /* Reduced height for small screens */
+    background-size: 100% 44vh; /* Reduced height for small screens */
+  }
+}
+
+@media (max-width: 400px) {
+  .bgcar {
+    background-size: 100% 49vh;
+    /* Reduced height for small screens */
   }
 }
 
