@@ -14,79 +14,79 @@ const DetailsPage = () => {
   const [phone, setPhone] = useState("");
   const [id, setId] = useState("");
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const handleContinue = () => {
-    // Include vehicleData and user inputs in the data to pass to the next page
-    const updatedData = {
-      vehicleNumber:vehicleNumber,
-      email:email,
-      name:name,
-      phone:phone,
-      id:id,
-    };
-    const dataString = encodeURIComponent(JSON.stringify(updatedData));
-    router.push(`/estimate?data=${dataString}`);
-  };
+  // const handleContinue = () => {
+  //   // Include vehicleData and user inputs in the data to pass to the next page
+  //   const updatedData = {
+  //     vehicleNumber:vehicleNumber,
+  //     email:email,
+  //     name:name,
+  //     phone:phone,
+  //     id:id,
+  //   };
+  //   const dataString = encodeURIComponent(JSON.stringify(updatedData));
+  //   router.push(`/estimate?data=${dataString}`);
+  // };
 
-  if (!vehicleNumber) {
-    return <p>Loading...</p>;
-  }
+  // if (!vehicleNumber) {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen overflow-x-hidden">
       <div className="flex w-full">
         <div className="bg-white w-full flex flex-col h-screen">
-          <div className="h-screen flex items-center">
-            <div className="flex w-full justify-center items-center flex-col">
-              <div className="flex items-start flex-col w-[80%]">
-                <h1 className="text-3xl text-black font-bold mt-0">
+          <div className="h-screen flex sm:items-center">
+            <div className="flex w-full sm:justify-center sm:items-center flex-col">
+              <div className="flex items-start flex-col sm:w-[80%] ">
+                <h1 className="sm:text-3xl text-sm text-black sm:font-bold p-3 sm:p-0 font-semibold sm:mt-0 mt-20">
                   Complete your details to get <u>FREE</u> no-obligation offers
                   and advice on selling your Car
                 </h1>
-                <div className="flex flex-col items-center relative mt-10">
+                <div className="flex flex-col sm:items-center relative mt-10 sm:p-0 p-3">
                   <input
                     type="email"
                     placeholder="Email"
-                    className="w-96 bg-gray-100 text-black h-10 rounded-md pl-2"
+                    className="sm:w-96 w-72 bg-gray-100 text-black h-10 rounded-md pl-2"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <input
                     type="text"
                     placeholder="Name"
-                    className="w-96 bg-white mt-7 border-2 text-black h-10 rounded-md pl-2"
+                    className="sm:w-96 w-72 bg-white mt-7 border-2 text-black h-10 rounded-md pl-2"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                   <input
                     type="tel"
                     placeholder="Phone"
-                    className="w-96 bg-white mt-7 border-2 text-black h-10 rounded-md pl-2"
+                    className="sm:w-96 w-72 bg-white mt-7 border-2 text-black h-10 rounded-md pl-2"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                   />
                   <input
                     type="text"
                     placeholder="ID"
-                    className="w-96 bg-white mt-7 border-2 text-black h-10 rounded-md pl-2"
+                    className="sm:w-96 w-72 bg-white mt-7 border-2 text-black h-10 rounded-md pl-2"
                     value={id}
                     onChange={(e) => setId(e.target.value)}
                   />
                 </div>
-                <span className="text-black underline text-sm mt-7 font-bold">
+                <span className="text-black underline text-sm mt-7 font-bold sm:ml-0 ml-3">
                   Been referred by a friend?
                 </span>
-                <div className="flex justify-center mt-6 w-[45%] items-center relative align-middle h-12">
+                <div className="flex justify-center mt-6 w-full p-4 sm:p-0 sm:w-[45%] items-center relative align-middle h-12">
                   <button
-                    className="bg-yellow-500 h-10 rounded-xl text-black font-bold text-xl w-full"
-                    onClick={handleContinue}
+                    className="bg-yellow-500 sm:h-10 h-8 rounded-lg sm:ml-0 ml-3  text-black font-semibold sm:font-bold sm:text-xl w-full"
+                    // onClick={handleContinue}
                   >
                     Continue
-                    <FaCircleArrowRight className="bottom-3 right-6 text-2xl absolute" />
+                    <FaCircleArrowRight className=" sm:bottom-3 bottom-4  right-6 text-lg sm:text-2xl absolute" />
                   </button>
                 </div>
-                <div className="mt-5 text-black w-[50%] font-medium text-xs">
+                <div className="mt-5 text-black sm:w-[50%] p-4 sm:p-0  font-medium text-xs">
                   By proceeding you confirm you have read our{" "}
                   <u>Privacy Policy</u> and agree to our <u>Terms & Conditions</u>. You
                   agree to sign up to our free service and understand you will
@@ -98,7 +98,7 @@ const DetailsPage = () => {
             </div>
           </div>
         </div>
-        <div className="w-2/3 bgimg bg-white h-screen flex items-center justify-center relative">
+        <div className="w-2/3 bgimg bg-white h-screen hidden sm:flex items-center justify-center relative">
           <div className="bg-transparent flex items-start justify-start mr-auto h-fit w-full">
             <Image
               src="/ballons.png"
