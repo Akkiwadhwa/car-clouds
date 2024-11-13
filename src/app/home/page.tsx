@@ -98,7 +98,7 @@ const Page = () => {
             <span className="text-white text-4xl sm:text-6xl ml-5 sm:ml-0  md:text-7xl lg:text-7xl">
               Get The Most For Your Car 
             </span>
-            <h3 id='smallheading' className="font-normal pt-1 sm:mt-3 mt-3 sm:-ml-10 text-white h-fit sm:pr-0 pr-8 text-xs sm:text-xl">
+            <h3 id='smallheading' className="font-normal pt-1 sm:mt-3 mt-3  text-white h-fit sm:pr-0 pr-8 text-xs sm:text-xl">
               Most Car Cloud sellers surveyed got an average £1,000 more vs part
               exchange quotes.
             </h3>
@@ -107,7 +107,7 @@ const Page = () => {
           <div className="justify-center  flex sm:h-fit sm:mt-0   ">
             <form
               onSubmit={handleSubmit}
-              className="bg-gray-200  shadow-xl sm:h-36 sm:mt-10 mt-10 ml-32 sm:ml-0 flex sm:items-start flex-col rounded-lg sm:w-[90%] sm:p-4 p-2"
+              className="bg-gray-200  shadow-xl sm:h-36 sm:mt-10 mt-10 ml-32 w-fit sm:ml-0 flex sm:items-start flex-col rounded-lg sm:w-[90%] sm:p-4 p-2"
             >
               <span className="text-black text-left text-sm md:text-xl font-semibold">
                 Your vehicle registration
@@ -118,12 +118,12 @@ const Page = () => {
                   placeholder="ENTER REG"
                   value={vehicleNumber}
                   onChange={handleInputChange}
-                  className="w-[20rem] md:w-[20rem] lg:w-[24rem] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
+                  className="w-[20rem] md:w-[20rem] lg:w-[20rem] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
                 />
                 <div className="bg-yellow-500  flex rounded-lg relative w-fit">
                   <button
                     type="submit"
-                    className="bg-yellow-500 hover:bg-cyan-400 h-8 sm:h-12 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[20rem] lg:w-[24rem]"
+                    className="bg-yellow-500 hover:bg-cyan-400 h-8 sm:h-12 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[20rem] lg:w-[20rem]"
                   >
                     Start Now
                     <FaCircleArrowRight className="right-3 bottom-2 sm:bottom-3 text-sm md:text-2xl absolute" />
