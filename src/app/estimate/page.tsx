@@ -10,7 +10,6 @@ const EstimatePage = () => {
   const searchParams = useSearchParams();
   const dataParam = searchParams.get("data");
   const vehicleData = dataParam ? JSON.parse(decodeURIComponent(dataParam)) : null;
-  const [vehicleNumber, setVehicleNumber] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [valuationData, setValuationData] = useState(null);
@@ -130,7 +129,7 @@ const EstimatePage = () => {
               Your estimated sale price:
             </p>
             <p className="sm:text-7xl text-4xl text-black font-extrabold">
-              £ 4023<span className="text-lg">*</span>
+              £ {formattedPrice}<span className="text-lg">*</span>
             </p>
           </div>
 
