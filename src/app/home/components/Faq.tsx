@@ -51,7 +51,7 @@ const Faq = () => {
 
   return (
     <div className="flex flex-col items-center px-4 py-5">
-      <h1 className="text-5xl text-black font-bold text-center mb-6">FAQ's</h1>
+      <h1 className="text-5xl text-black font-bold text-center mb-6">FAQs</h1>
       <div className="grid gap-6 mt-2 md:grid-cols-2 lg:grid-cols-3 w-full max-w-6xl">
         {faqs.map((faq, index) => (
           <div key={index} className="border-b border-gray-300 pr-4 pl-4  pb-4 cursor-pointer">

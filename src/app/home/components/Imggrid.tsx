@@ -1,13 +1,12 @@
 // components/ResponsiveImageGrid.js
-import Image from 'next/image';
 
-const images = [
-  { src: '/public/car1.jpg', alt: 'Yellow Mini Cooper' },
-  { src: '/images/person1.jpg', alt: 'Happy woman in car' },
-  { src: '/images/person2.jpg', alt: 'Man in car' },
-  { src: '/images/car2.jpg', alt: 'Mercedes parked' },
-  { src: '/images/person3.jpg', alt: 'Woman smiling in car' },
-];
+// const images = [
+//   { src: '/public/car1.jpg', alt: 'Yellow Mini Cooper' },
+//   { src: '/images/person1.jpg', alt: 'Happy woman in car' },
+//   { src: '/images/person2.jpg', alt: 'Man in car' },
+//   { src: '/images/car2.jpg', alt: 'Mercedes parked' },
+//   { src: '/images/person3.jpg', alt: 'Woman smiling in car' },
+// ];
 
 const ResponsiveImageGrid = () => {
   return (
