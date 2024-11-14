@@ -51,12 +51,12 @@ const Page = () => {
         </div>
 
         <div className="flex items-center mt-5 sm:mt-0 gap-3">
-          <img
+          {/* <img
             className="sm:w-10 sm:h-10 h-7 w-7 rounded-full"
             src="/blank_img.webp"
             alt="Rounded avatar"
-          />
-          <button>Login</button>
+          /> */}
+          {/* <button>Login</button> */}
         </div>
 
         <button

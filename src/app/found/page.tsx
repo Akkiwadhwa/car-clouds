@@ -46,19 +46,30 @@ const CarMileagePageContent = () => {
   return (
     <div className="w-full h-screen">
       <div className="flex w-full">
-        <div className="bg-white w-full flex flex-col h-screen">
+        
+        <div className="bg-white w-full flex flex-col h-screen foundpage">
+        <div className="bg-transparent flex items-start justify-start mr-auto h-fit w-[32]">
+            <Image
+              src="/ballons.png"
+              alt="Car with clouds"
+              width={300}  // Adjusted size
+              height={250}  // Adjusted size
+              className="object-cover"
+            />
+          </div>
+
           <div className="h-3/4 flex items-center">
             <div className="flex w-full justify-center items-center flex-col">
               <div className="flex items-start flex-col w-2/3">
                 <span
-                  className="font-semibold flex text-black underline cursor-pointer"
+                  className="font-semibold flex text-white underline cursor-pointer"
                   onClick={() => router.back()}
                 >
-                  <MdKeyboardArrowLeft className="mt-1 text-black text-lg font-semibold" />{" "}
+                  <MdKeyboardArrowLeft className="mt-1 text-white text-lg font-semibold" />{" "}
                   Back
                 </span>
 
-                <h1 className="text-4xl text-black font-bold mt-5">
+                <h1 className="text-4xl text-white font-bold mt-5">
                   Have we found your car?
                 </h1>
                 <div className="flex items-center relative gap-4 mt-5 flex-col">
@@ -66,7 +77,7 @@ const CarMileagePageContent = () => {
                     {vehicleData.registrationNumber}
                   </span>
                 </div>
-                <span className="text-black text-lg mt-4 font-semibold flex items-center">
+                <span className="text-white text-lg mt-4 font-semibold flex items-center">
                   <img
                     src="/bmw-logo (2).svg"
                     alt="BMW logo"
@@ -95,15 +106,7 @@ const CarMileagePageContent = () => {
           </div>
         </div>
         <div className="w-2/3 bgimg h-screen flex items-center justify-center relative" id='foundbg'>
-          <div className="bg-transparent flex items-start justify-start mr-auto h-fit w-full">
-            <Image
-              src="/ballons.png"
-              alt="Car with clouds"
-              width={500}
-              height={500}
-              className="object-cover"
-            />
-          </div>
+          
         </div>
       </div>
     </div>
