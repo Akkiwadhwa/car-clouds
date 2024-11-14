@@ -24,6 +24,26 @@ body {
 font-family: 'Lufga', sans-serif;
 }
 
+.carfull {
+  background-image: url('../../public/carbg.jpg');
+  background-size: 100% 100vh;
+  align-content: center;
+
+  /* Adjust size as needed */
+  background-repeat: repeat;
+  background-position: center;
+}
+
+.bggray {
+  background-image: url('../../public/graybg.jpeg');
+  background-size: 100% 100vh;
+  align-content: center;
+
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .bgimg {
   background-image: url('../../public/car_clouds.png');
   background-size: 95% 100vh;
@@ -35,7 +55,7 @@ font-family: 'Lufga', sans-serif;
 }
 .bgcar {
   background-image: url('../../public/car_clouds.png');
-  background-size: 100% 80vh;
+  background-size: 100% 90vh;
   align-content: top;
 
   /* Adjust size as needed */
