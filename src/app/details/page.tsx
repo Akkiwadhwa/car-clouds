@@ -9,7 +9,7 @@ import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 
 const DetailsPage = () => {
   const searchParams = useSearchParams();
-  // const vehicleNumber = searchParams.get("vehicleNumber");
+  const vehicleNumber = searchParams.get("vehicleNumber");
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -20,24 +20,24 @@ const DetailsPage = () => {
 
 
 
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const handleContinue = () => {
-  //   // Include vehicleData and user inputs in the data to pass to the next page
-  //   const updatedData = {
-  //     vehicleNumber:vehicleNumber,
-  //     email:email,
-  //     name:name,
-  //     phone:phone,
-  //     id:id,
-  //   };
-  //   const dataString = encodeURIComponent(JSON.stringify(updatedData));
-  //   router.push(`/estimate?data=${dataString}`);
-  // };
+  const handleContinue = () => {
+    // Include vehicleData and user inputs in the data to pass to the next page
+    const updatedData = {
+      vehicleNumber:vehicleNumber,
+      email:email,
+      name:name,
+      phone:phone,
+      id:id,
+    };
+    const dataString = encodeURIComponent(JSON.stringify(updatedData));
+    router.push(`/estimate?data=${dataString}`);
+  };
 
-  // if (!vehicleNumber) {
-  //   return <p>Loading...</p>;
-  // }
+  if (!vehicleNumber) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="w-full h-screen overflow-x-hidden overflow-y-hidden pb-10">
@@ -91,7 +91,7 @@ const DetailsPage = () => {
               <div className="flex items-start flex-col  sm:w-[80%]  ">
                 <span
                   className="font-semibold flex text-white  cursor-pointer pl-2 sm:pl-0"
-                  // onClick={() => router.back()}
+                  onClick={() => router.back()}
                 >
                   <MdKeyboardArrowLeft className="mt-1 text-white text-lg font-semibold" />{" "}
                   Back
@@ -106,29 +106,29 @@ const DetailsPage = () => {
                     placeholder="Email"
                    className="sm:w-80 w-60 w-full bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
                     value={email}
-                    // onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                   <input
                     type="text"
                     placeholder="Name"
                     className="sm:w-80 w-full bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
                     value={name}
-                    // onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                   />
                 <input
-  type="tel"
-  placeholder="Phone"
-  className="sm:w-80 w-full bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
-  value={phone}
-  // onChange={(e) => setPhone(e.target.value)}
-/>
+                  type="tel"
+                  placeholder="Phone"
+                  className="sm:w-80 w-full bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
 
                   <input
                     type="text"
-                    placeholder="ID"
+                    placeholder="Post Code"
                     className="sm:w-80 w-36 w-full bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
                     value={id}
-                    // onChange={(e) => setId(e.target.value)}
+                    onChange={(e) => setId(e.target.value)}
                   />
                 </div>
 
@@ -146,7 +146,7 @@ const DetailsPage = () => {
                  <div className="flex justify-center sm:mt-6 w-full p-4 sm:p-0 sm:w-[100%]  items-center relative align-middle h-12">
                   <button
                     className="bg-yellow-500 hover:bg-[#93E9BE] sm:h-10 h-8 rounded-lg sm:ml-0   text-black font-semibold sm:font-bold sm:text-xl w-full"
-                    // onClick={handleContinue}
+                    onClick={handleContinue}
                   >
                     See My Valuation
                     <FaCircleArrowRight className=" sm:bottom-3 bottom-4  right-6 text-lg sm:text-2xl absolute" />

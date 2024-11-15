@@ -70,15 +70,15 @@ const EstimatePage = () => {
         </div>
 
         <div className="flex items-center ml-10 sm:mt-0 gap-2">
-          <img
+          {/* <img
             className="w-10 h-10 rounded-full"
             src="/blank_img.webp"
             alt="Rounded avatar"
           />
-          <button>Login</button>
+          <button>Login</button> */}
         </div>
 
-<div className=" sm:hidden flex item-center justify-end w-full  ">
+      <div className=" sm:hidden flex item-center justify-end w-full  ">
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="sm:hidden mt-1 text-white text-2xl mr-10 "

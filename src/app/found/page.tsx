@@ -1,51 +1,51 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,Suspense} from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 const CarMileagePageContent = () => {
-  // const searchParams = useSearchParams();
-  // const router = useRouter();
+  const searchParams = useSearchParams();
+  const router = useRouter();
 const [isMenuOpen, setIsMenuOpen] = useState(false); 
-  // // Safely fetch query parameter
-  // const vehicleNumber = searchParams?.get("vehicle_number");
-  // const [vehicleData, setVehicleData] = useState(null);
-  // const [error, setError] = useState(null);
+  // Safely fetch query parameter
+  const vehicleNumber = searchParams?.get("vehicle_number");
+  const [vehicleData, setVehicleData] = useState(null);
+  const [error, setError] = useState(null);
 
-  // // Fetch vehicle data when `vehicleNumber` changes
-  // useEffect(() => {
-  //   if (!vehicleNumber) return;
+  // Fetch vehicle data when `vehicleNumber` changes
+  useEffect(() => {
+    if (!vehicleNumber) return;
 
-  //   const fetchVehicleData = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `https://carcloudstest.fabspot.co.uk:5000/api/get_data?vehicle_number=${vehicleNumber}`
-  //       );
-  //       if (!response.ok) throw new Error("Failed to fetch vehicle data");
+    const fetchVehicleData = async () => {
+      try {
+        const response = await fetch(
+          `https://carcloudstest.fabspot.co.uk:5000/api/get_data?vehicle_number=${vehicleNumber}`
+        );
+        if (!response.ok) throw new Error("Failed to fetch vehicle data");
 
-  //       const data = await response.json();
-  //       setVehicleData(data);
-  //       setError(null);
-  //     } catch (err) {
-  //       console.error("Error fetching vehicle data:", err);
-  //       setError(err.message);
-  //     }
-  //   };
+        const data = await response.json();
+        setVehicleData(data);
+        setError(null);
+      } catch (err) {
+        console.error("Error fetching vehicle data:", err);
+        setError(err.message);
+      }
+    };
 
-  //   fetchVehicleData();
-  // }, [vehicleNumber]);
+    fetchVehicleData();
+  }, [vehicleNumber]);
 
-  // // Handle navigation on button click
-  // const handleContinue = () => {
-  //   router.push(`/car-mileage?vehicleNumber=${vehicleNumber}`);
-  // };
+  // Handle navigation on button click
+  const handleContinue = () => {
+    router.push(`/car-mileage?vehicleNumber=${vehicleNumber}`);
+  };
 
-  // // Handle loading and error states
-  // if (error) return <p className="text-red-500 mt-4">{error}</p>;
-  // if (!vehicleData) return <p>Loading...</p>;
+  // Handle loading and error states
+  if (error) return <p className="text-red-500 mt-4">{error}</p>;
+  if (!vehicleData) return <p>Loading...</p>;
 
   // Render vehicle information
   return (
@@ -101,7 +101,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
                 {/* Back Button */}
                 <button
                   className="font-semibold flex text-white  cursor-pointer"
-                  // onClick={() => router.back()}
+                  onClick={() => router.back()}
                 >
                   <MdKeyboardArrowLeft className="pt-1 text-white text-lg font-semibold" />
                   Back
@@ -113,7 +113,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
                 </h1>
                 <div className="flex sm:items-center items-start relative gap-4 mt-5 flex-col">
                   <span className="bg-yellow-400 pl-4 text-3xl pr-4 font-bold text-black rounded-lg">
-                    ABC1234
+                  {vehicleData.registrationNumber}
                   </span>
                 </div>
                 <span className="text-white text-xl sm:mt-4 mt-7  font-semibold flex items-center">
@@ -124,15 +124,17 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
                     height={32}
                     className="mr-2"
                   />
-                  BMW X5 (2020) Black
+                  {vehicleData.make} {vehicleData.model} (
+                  {vehicleData.yearOfManufacture}) {vehicleData.colour}
                 </span>
                 <p className="text-white ml-10 text-sm -mt-1">
-                  Petrol &#8226; 3000 cc &#8226; Black
+                {vehicleData.fuelType} &#8226; {vehicleData.engineCapacity} cc
+                &#8226; {vehicleData.colour}
                 </p>
               </div>
               <div className="mt-10  flex justify-start item-start w-[75%]">
                 <p className="text-white ml-10 underline sm:text-sm text-xs -mt-1">
-                  This isn't the right car
+                  This isn&apos;t the right car
                 </p>
                 </div>
             </div>
@@ -143,7 +145,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
           <div className="h-fit  flex justify-center items-center pb-5">
             <div className="flex justify-center mt-auto w-[80%]  items-center relative align-middle h-fit">
               <button
-                // onClick={handleContinue}
+                onClick={handleContinue}
                 className="bg-yellow-500 h-12 rounded-xl mb-3 text-black font-bold text-xl w-full"
               >
                 Continue
@@ -173,4 +175,14 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
   );
 };
 
-export default CarMileagePageContent;
+
+const CarMileagePage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CarMileagePageContent />
+    </Suspense>
+  );
+};
+
+export default CarMileagePage;
+
