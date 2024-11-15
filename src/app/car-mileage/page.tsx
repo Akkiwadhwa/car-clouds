@@ -5,104 +5,150 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { FcOk } from "react-icons/fc";
 import { FaCircleArrowRight } from "react-icons/fa6";
+import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 
 const CarMileagePageContent = () => {
   const searchParams = useSearchParams();
   const vehicleNumber = searchParams.get("vehicleNumber");
-  const router = useRouter();
+  // const router = useRouter();
 
   const [vehicleData, setVehicleData] = useState(null);
   const [mileageEstimate, setMileageEstimate] = useState("");
   const [error, setError] = useState(null);
+   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchVehicleData = async () => {
-      try {
-        // Fetch vehicle data including mileage
-        const response = await fetch(
-          `https://carcloudstest.fabspot.co.uk:5000/api/get_mileage?vehicle_number=${vehicleNumber}`
-        );
-        if (!response.ok) throw new Error("Failed to fetch vehicle data");
+  // useEffect(() => {
+  //   const fetchVehicleData = async () => {
+  //     try {
+  //       // Fetch vehicle data including mileage
+  //       const response = await fetch(
+  //         `https://carcloudstest.fabspot.co.uk:5000/api/get_mileage?vehicle_number=${vehicleNumber}`
+  //       );
+  //       if (!response.ok) throw new Error("Failed to fetch vehicle data");
 
-        const data = await response.json();
-        setVehicleData(data);
+  //       const data = await response.json();
+  //       setVehicleData(data);
 
-        // Get the last recorded mileage from the response
-        const lastMileage = data.summary?.lastRecordedMileage || "";
-        setMileageEstimate(lastMileage);
+  //       // Get the last recorded mileage from the response
+  //       const lastMileage = data.summary?.lastRecordedMileage || "";
+  //       setMileageEstimate(lastMileage);
 
-        setError(null);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
+  //       setError(null);
+  //     } catch (error) {
+  //       setError(error.message);
+  //     }
+  //   };
 
-    if (vehicleNumber) {
-      fetchVehicleData();
-    }
-  }, [vehicleNumber]);
+  //   if (vehicleNumber) {
+  //     fetchVehicleData();
+  //   }
+  // }, [vehicleNumber]);
 
-  const handleContinue = () => {
-    router.push(`/details?vehicleNumber=${vehicleNumber}`);
-  };
+  // const handleContinue = () => {
+  //   router.push(`/details?vehicleNumber=${vehicleNumber}`);
+  // };
 
-  if (error) return <p className="text-red-500 mt-4">{error}</p>;
-  if (!vehicleData) return <p>Loading...</p>;
+  // if (error) return <p className="text-red-500 mt-4">{error}</p>;
+  // if (!vehicleData) return <p>Loading...</p>;
 
   return (
     <div className="w-full h-screen">
       <div className="flex w-full">
-        <div className="bg-white w-full flex flex-col h-screen">
-          <div className="sm:h-3/4 h-[70%] flex items-center">
+        <div className="bgimg w-full flex flex-col h-screen">
+          <div className="h-fit sm:w-[30%] w-[50%]   flex  justify-start items-baseline ">
+            <Image
+              src="/ballons.png"
+              alt="Car with clouds"
+              width={350}
+              height={400}
+              className="sm:pl-10 ml-2 "
+            />
+
+
+<div className=" sm:hidden  w-full h-full ml-36 flex mr-3 ">
+
+            <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="sm:hidden mt-5 text-white text-3xl mr-5"
+        >
+          <IoMdMenu className="pointer text-4xl" />
+        </button>
+
+        {/* Mobile Menu - Visible only on mobile */}
+        <div
+          className={`${
+            isMenuOpen ? "flex" : "hidden"
+          } absolute  top-10 right-14 bg-gray-300 text-sm rounded-lg border-4 border-blue-200 text-center items-center text-black flex-col gap-2  p-4 w-[35%] sm:hidden`}
+        >
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            How it works
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            Tools
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            Sell my car
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            More
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            Dealer
+          </button>
+        </div>
+        </div>
+          </div>
+
+          <div className="sm:h-3/4 h-[70%] flex items-center pr-7 pl-7 sm:pr-0 sm:pl-0">
             <div className="flex w-full justify-center items-center flex-col">
               <div className="flex items-start flex-col sm:w-2/3 w-full">
                 <span
-                  className="font-semibold flex text-black underline cursor-pointer"
-                  onClick={() => router.back()}
+                  className="font-semibold flex text-white underline cursor-pointer"
+                  // onClick={() => router.back()}
                 >
                   <MdKeyboardArrowLeft className="mt-1 sm:mt-0
-                   text-black sm:text-xl text-lg " /> Back
+                   text-white sm:text-xl text-lg " /> Back
                 </span>
 
-                <h1 className="sm:text-4xl text-2xl p-2 sm:p-0 text-black font-bold mt-5">
+                <h1 className="sm:text-5xl text-3xl p-2 sm:p-0  text-white font-bold mt-5">
                   Confirm your car&apos;s current mileage
                 </h1>
-                <div className="flex w-fit items-center relative mt-5">
+                <div className="flex w-fit items-center relative mt-5 ">
                   <input
                     type="text"
                     value={mileageEstimate}
-                    onChange={(e) => setMileageEstimate(e.target.value)}
-                    className="sm:w-96 w-96 bg-white text-black border shadow-lg shadow-cyan-200 h-10 rounded-md sm:pl-2 ml-3 sm:ml-0"
+                    // onChange={(e) => setMileageEstimate(e.target.value)}
+                    className="w-96  bg-white/30  text-white  shadow-lg  h-10 rounded-md sm:pl-2  sm:ml-3 "
                   />
                   <FcOk className="text-3xl absolute right-1" />
                 </div>
-                <span className="text-black text-xs mt-2 ml-3 sm:ml-0 font-semibold">
+                <span className="text-white text-xs mt-2 sm:ml-3 font-semibold">
                   We&apos;ve estimated your mileage based on your car&apos;s MOT history
                 </span>
               </div>
             </div>
           </div>
-          <div className="h-52 flex justify-center items-end">
-            <div className="flex justify-center mt-auto sm:w-3/4 w-full items-center relative align-middle h-12">
+          <div className="h-52 flex justify-center items-center  ">
+            <div className="flex sm:justify-start justify-center sm:mt-auto sm:w-3/4  w-full sm:items-center relative align-middle h-full">
               <button
-                onClick={handleContinue}
-                className="bg-yellow-500 h-12 rounded-xl mb-3 text-black font-bold text-xl sm:w-full w-96 "
+                // onClick={handleContinue}
+                className="bg-yellow-500 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-96 "
               >
                 Continue
-                <FaCircleArrowRight className="bottom-4 sm:right-6 right-9 text-2xl absolute" />
+                <FaCircleArrowRight className="sm:bottom-14 bottom-2 sm:right-6 right-9 text-2xl absolute" />
               </button>
             </div>
           </div>
         </div>
-        <div className="w-2/3 bgimg h-screen hidden sm:flex items-center justify-center relative">
+        <div className="w-2/3 mileagecar h-screen hidden sm:flex items-center justify-center relative">
           <div className="bg-transparent flex items-start justify-start mr-auto h-fit w-full">
-            <Image
+            {/* <Image
               src="/ballons.png"
               alt="Car with clouds"
               width={500}
               height={500}
               className="object-cover"
-            />
+            /> */}
           </div>
         </div>
       </div>

@@ -40,18 +40,20 @@ font-family: 'Lufga', sans-serif;
   align-content: center;
 
   /* Adjust size as needed */
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
+  object-fit: cover;
 }
 
 .bgimg {
   background-image: url('../../public/car_clouds_new.png');
-  background-size: 95% 100vh;
+  background-size: 100% 100vh;
   align-content: end;
  
   /* Adjust size as needed */
   background-repeat: no-repeat;
   background-position: right;
+  object-fit: cover;
 }
 .bgcar {
   background-image: url('../../public/car_clouds_new.png');
@@ -100,6 +102,7 @@ font-family: 'Lufga', sans-serif;
   /* Adjust size as needed */
   background-repeat: no-repeat;
   background-position: top;
+  object-fit: cover;
 }
 
 #foundbg{
@@ -109,6 +112,7 @@ font-family: 'Lufga', sans-serif;
 
   /* Adjust size as needed */
   background-repeat: no-repeat;
+  object-fit: cover;
   /* background-position: top; */
 }
 
@@ -142,4 +146,26 @@ font-family: 'Lufga', sans-serif;
   }
 
 }
+
+.foundcar {
+  background-image: url('../../public/cooper.jpeg');
+  background-size: 100% 100%;
+  align-content: top;
+
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.mileagecar {
+  background-image: url('../../public/track.png');
+  background-size: 100% 100%;
+  align-content: center;
+
+  /* Adjust size as needed */
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
 

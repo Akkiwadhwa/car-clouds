@@ -27,6 +27,13 @@ const Page = () => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // Enables smooth scrolling
+    });
+  }
+
   return (
     <div className="bgcar h-fit w-screen  overflow-x-hidden">
       <div className="flex h-[15%] sm:h-[30%] items-start pt-1 sm:pt:0  sm:items-center justify-between px-0  sm:px-10 ">
@@ -148,7 +155,7 @@ const Page = () => {
       </div>
 
       {/* lower section  */}
-      <div className="w-screen over-x-hidden bggray  -mt-20 ">
+      <div className="w-screen over-x-hidden bggray h-fit  -mt-20 ">
         <div className="flex flex-col items-center  pt-20 py-8  min-h-screen w-screen overflow-x-hidden">
           <h1 className="sm:text-6xl text-xl font-bold text-center mt-8 text-black">
             How to sell your car with Car Clouds
@@ -156,7 +163,7 @@ const Page = () => {
 
           <div className="flex flex-col lg:flex-row sm:gap-3  justify-center items-center  sm:mr-20 sm:ml-20 ">
             {/* Instant Valuation */}
-            <div className="flex flex-col items-center text-center p-2 mt-10  rounded-lg  w-full lg:w-1/3">
+            <div className="flex flex-col items-center text-center p-2 sm:mt-10  rounded-lg  w-full lg:w-1/3">
               <div className=" p-3 rounded-full ">
                 {/* Icon (example: price tag icon) */}
                 <Image
@@ -170,14 +177,14 @@ const Page = () => {
               <h2 className="text-xl font-semibold text-blue-800  mb-2">
                 Get an Instant Valuation
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 pr-2 pl-2">
                 Enter your registration and a few quick details, and we’ll give
                 you a transparent, market-based valuation.
               </p>
             </div>
 
             {/* Advertise to Dealers */}
-            <div className="flex flex-col items-center text-center p-2 mt-10  rounded-lg  w-full lg:w-1/3">
+            <div className="flex flex-col items-center text-center p-2 sm:mt-10  rounded-lg  w-full lg:w-1/3">
               <div className=" p-3 rounded-full ">
                 {/* Icon (example: price tag icon) */}
                 <Image
@@ -191,14 +198,14 @@ const Page = () => {
               <h2 className="text-xl font-semibold text-blue-700 mb-2">
                 Advertise to Dealers
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 pr-2 pl-2">
                 With a few photos and some details, your car is listed on our
                 site, showcased to over 500 dealers.
               </p>
             </div>
 
             {/* Free Collection, Fast Payment */}
-            <div className="flex flex-col items-center text-center p-2 mt-10  rounded-lg  w-full lg:w-1/3">
+            <div className="flex flex-col items-center text-center p-2 sm:mt-10  rounded-lg  w-full lg:w-1/3">
               <div className=" p-3 rounded-full ">
                 {/* Icon (example: price tag icon) */}
                 <Image
@@ -212,7 +219,7 @@ const Page = () => {
               <h2 className="text-xl font-semibold text-blue-700 mb-2">
                 Free Collection, Fast Payment
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 pr-2 pl-2">
                 Once the auction closes, you’re notified of the top bid, and the
                 winning dealer will arrange pickup.
               </p>
@@ -221,19 +228,22 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="h-80 carfull flex flex-col justify-center w-screen ">
-        <div className="sm:text-6xl text-4xl text-center p-5 sm:p-0 flex justify-center items-center font-bold">
+      <div className="h-60 carfull flex flex-col justify-center w-screen ">
+        <div className="sm:text-6xl text-4xl text-center p-3 sm:p-0 flex justify-center items-center font-bold">
           Selling your Car with Car Clouds
         </div>
-        <div className="text-sm  flex justify-center mt-5 sm:p-0 pr-5 pl-5 items-center">
+        <div className="text-sm  flex justify-center sm:mt-5 sm:p-0 pr-5 pl-10 items-center">
           we work on your behalf, ensuring your car is present to thousand of
           dealers while fighting for the best price
         </div>
 
-        <div className="text-lg mt-10 text-black flex justify-center items-center ">
-          <button className="rounded-lg bg-yellow-500 sm:px-8 px-5 sm:py-5 py-3 flex justify-center font-semibold ">
+        <div className="text-lg sm:mt-10 mt-2 text-black flex justify-center items-center ">
+          <button
+            onClick={scrollToTop}
+            className="rounded-lg bg-yellow-500 sm:px-8 px-5 sm:py-5 py-3 flex justify-center font-semibold"
+          >
             Value My Car
-            <FaArrowRightLong className=" mt-2 flex ml-3 text-xs " />
+            <FaArrowRightLong className="mt-2 flex ml-3 text-xs" />
           </button>
         </div>
       </div>
