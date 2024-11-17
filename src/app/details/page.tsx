@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
+import Link from "next/link";
 
 const DetailsPage = () => {
   const searchParams = useSearchParams();
@@ -46,6 +47,7 @@ const DetailsPage = () => {
          <div className="flex flex-row justify-start items-center pt-5  w-[100%] ">
             
           <div className="h-fit sm:w-[30%] w-[50%]   flex  justify-start items-baseline ">
+             <Link href="/home">
             <Image
               src="/ballons.png"
               alt="Car with clouds"
@@ -53,7 +55,7 @@ const DetailsPage = () => {
               height={400}
               className="sm:pl-10 ml-2 "
             />
-
+        </Link>
 
   </div>
 

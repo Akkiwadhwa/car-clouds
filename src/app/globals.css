@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,11 +59,11 @@ font-family: 'Lufga', sans-serif;
   background-image: url('../../public/car_clouds_new.png');
   background-size: 100% 90vh;
  
-  align-content: center;
+  align-content: top;
   object-fit: left;
   /* Adjust size as needed */
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
 }
 
 @media (max-width: 640px) {

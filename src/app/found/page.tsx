@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
+import Link from "next/link";
 const CarMileagePageContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -56,6 +57,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
           <div className="flex flex-row justify-start items-center pt-5  w-[100%] ">
             
           <div className="h-fit sm:w-[30%] w-[50%]   flex  justify-start items-baseline ">
+                  <Link href="/home">
             <Image
               src="/ballons.png"
               alt="Car with clouds"
@@ -63,7 +65,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
               height={400}
               className="sm:pl-10 ml-2 "
             />
-
+ </Link>
 
   </div>
 

@@ -130,7 +130,7 @@ const Page = () => {
                   <div className="bg-yellow-500  flex rounded-lg relative w-fit">
                     <button
                       type="submit"
-                      className="bg-yellow-500 hover:bg-cyan-400 h-8 sm:h-12 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[20rem] lg:w-[20rem]"
+                      className="bg-yellow-500 hover:bg-cyan-400 h-8 sm:h-12 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[20rem] lg:w-[23rem]"
                     >
                       Start Now
                       <FaCircleArrowRight className="right-3 bottom-2 sm:bottom-3 text-lg md:text-2xl absolute" />
