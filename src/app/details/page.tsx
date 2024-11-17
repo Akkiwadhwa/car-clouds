@@ -43,6 +43,8 @@ const DetailsPage = () => {
     <div className="w-full h-screen overflow-x-hidden overflow-y-hidden pb-10">
       <div className="flex w-full ">
         <div className="bgimg w-full flex flex-col h-screen">
+         <div className="flex flex-row justify-start items-center pt-5  w-[100%] ">
+            
           <div className="h-fit sm:w-[30%] w-[50%]   flex  justify-start items-baseline ">
             <Image
               src="/ballons.png"
@@ -53,11 +55,11 @@ const DetailsPage = () => {
             />
 
 
-<div className=" sm:hidden  w-full h-full ml-36 flex mr-3 ">
+  </div>
 
             <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="sm:hidden mt-5 text-white text-3xl mr-5"
+          className="sm:hidden ml-auto  text-white text-3xl mr-5"
         >
           <IoMdMenu className="pointer text-4xl" />
         </button>
@@ -84,7 +86,8 @@ const DetailsPage = () => {
             Dealer
           </button>
         </div>
-        </div>
+      
+          
           </div>
           <div className="h-screen flex  items-center   ">
             <div className="flex w-full justify-center items-center flex-col">
@@ -104,21 +107,21 @@ const DetailsPage = () => {
                   <input
                     type="email"
                     placeholder="Email"
-                   className="sm:w-80 w-60 w-full bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
+                   className="sm:w-80 w-60  bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
                     value={email}
                     // onChange={(e) => setEmail(e.target.value)}
                   />
                   <input
                     type="text"
                     placeholder="Name"
-                    className="sm:w-80 w-full bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
+                    className="sm:w-80  bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
                     value={name}
                     // onChange={(e) => setName(e.target.value)}
                   />
                 <input
   type="tel"
   placeholder="Phone"
-  className="sm:w-80 w-full bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
+  className="sm:w-80  bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
   value={phone}
   // onChange={(e) => setPhone(e.target.value)}
 />
@@ -126,7 +129,7 @@ const DetailsPage = () => {
                   <input
                     type="text"
                     placeholder="ID"
-                    className="sm:w-80 w-36 w-full bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
+                    className="sm:w-80 w-36  bg-white/30  placeholder:text-white text-white h-10 rounded-md pl-2"
                     value={id}
                     // onChange={(e) => setId(e.target.value)}
                   />
@@ -145,11 +148,11 @@ const DetailsPage = () => {
                 </div>
                  <div className="flex justify-center sm:mt-6 w-full p-4 sm:p-0 sm:w-[100%]  items-center relative align-middle h-12">
                   <button
-                    className="bg-yellow-500 hover:bg-[#93E9BE] sm:h-10 h-8 rounded-lg sm:ml-0   text-black font-semibold sm:font-bold sm:text-xl w-full"
+                    className="bg-yellow-500 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-[90%] "
                     // onClick={handleContinue}
                   >
                     See My Valuation
-                    <FaCircleArrowRight className=" sm:bottom-3 bottom-4  right-6 text-lg sm:text-2xl absolute" />
+                    <FaCircleArrowRight className=" sm:bottom-2 bottom-4  right-16 text-lg sm:text-2xl absolute" />
                   </button>
                 </div>
               </div>

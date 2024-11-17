@@ -57,25 +57,24 @@ font-family: 'Lufga', sans-serif;
 }
 .bgcar {
   background-image: url('../../public/car_clouds_new.png');
-  background-size: 100% 80vh;
-  background-image: url('../../public/car_clouds_new.png');
   background-size: 100% 90vh;
-  align-content: top;
-
+ 
+  align-content: center;
+  object-fit: left;
   /* Adjust size as needed */
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: center;
 }
 
 @media (max-width: 640px) {
   .bgcar {
-    background-size: 100% 44vh; /* Reduced height for small screens */
+    background-size: 100% 43vh; /* Reduced height for small screens */
   }
 }
 
 @media (max-width: 400px) {
   .bgcar {
-    background-size: 100% 49vh;
+    background-size: 100% 50vh;
     /* Reduced height for small screens */
   }
 }

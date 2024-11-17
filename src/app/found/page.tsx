@@ -53,6 +53,8 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
       <div className="flex w-full">
         {/* Left Section */}
         <div className="bgimg w-full flex flex-col h-screen">
+          <div className="flex flex-row justify-start items-center pt-5  w-[100%] ">
+            
           <div className="h-fit sm:w-[30%] w-[50%]   flex  justify-start items-baseline ">
             <Image
               src="/ballons.png"
@@ -62,37 +64,40 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
               className="sm:pl-10 ml-2 "
             />
 
-            <div className=" sm:hidden  w-full h-full ml-36 flex mr-3 ">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="sm:hidden mt-5 text-white text-3xl mr-5"
-              >
-                <IoMdMenu className="pointer text-4xl" />
-              </button>
 
-              {/* Mobile Menu - Visible only on mobile */}
-              <div
-                className={`${
-                  isMenuOpen ? "flex" : "hidden"
-                } absolute  top-10 right-14 bg-gray-300 text-sm rounded-lg border-4 border-blue-200 text-center items-center text-white flex-col gap-2  p-4 w-[35%] sm:hidden`}
-              >
-                <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-                  How it works
-                </button>
-                <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-                  Tools
-                </button>
-                <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-                  Sell my car
-                </button>
-                <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-                  More
-                </button>
-                <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-                  Dealer
-                </button>
-              </div>
-            </div>
+  </div>
+
+            <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="sm:hidden ml-auto  text-white text-3xl mr-5"
+        >
+          <IoMdMenu className="pointer text-4xl" />
+        </button>
+
+        {/* Mobile Menu - Visible only on mobile */}
+        <div
+          className={`${
+            isMenuOpen ? "flex" : "hidden"
+          } absolute  top-10 right-14 bg-gray-300 text-sm rounded-lg border-4 border-blue-200 text-center items-center text-black flex-col gap-2  p-4 w-[35%] sm:hidden`}
+        >
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            How it works
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            Tools
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            Sell my car
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            More
+          </button>
+          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
+            Dealer
+          </button>
+        </div>
+      
+          
           </div>
 
           <div className="h-3/4 flex items-center">
@@ -140,14 +145,14 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
           </div>
 
           {/* Continue Button */}
-          <div className="h-fit  flex justify-center items-center pb-5">
-            <div className="flex justify-center mt-auto w-[80%]  items-center relative align-middle h-fit">
+           <div className="h-52 flex justify-center items-center  ">
+            <div className="flex sm:justify-start justify-center sm:mt-auto sm:w-3/4  w-full sm:items-center relative align-middle h-fit">
               <button
                 // onClick={handleContinue}
-                className="bg-yellow-500 h-12 rounded-xl mb-3 text-black font-bold text-xl w-full"
+                className="bg-yellow-500 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-[90%] "
               >
                 Continue
-                <FaCircleArrowRight className="bottom-6  right-6 text-2xl absolute" />
+                <FaCircleArrowRight className="sm:bottom-6 bottom-3 sm:right-6 right-9 text-2xl absolute" />
               </button>
             </div>
           </div>

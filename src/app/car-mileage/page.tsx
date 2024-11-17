@@ -54,7 +54,9 @@ const CarMileagePageContent = () => {
   return (
     <div className="w-full h-screen">
       <div className="flex w-full">
-        <div className="bgimg w-full flex flex-col h-screen">
+        <div className="bgimg flex flex-col h-screen w-full">
+          <div className="flex flex-row justify-start items-center pt-5  w-[100%] ">
+            
           <div className="h-fit sm:w-[30%] w-[50%]   flex  justify-start items-baseline ">
             <Image
               src="/ballons.png"
@@ -65,11 +67,11 @@ const CarMileagePageContent = () => {
             />
 
 
-<div className=" sm:hidden  w-full h-full ml-36 flex mr-3 ">
+  </div>
 
             <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="sm:hidden mt-5 text-white text-3xl mr-5"
+          className="sm:hidden ml-auto  text-white text-3xl mr-5"
         >
           <IoMdMenu className="pointer text-4xl" />
         </button>
@@ -96,12 +98,13 @@ const CarMileagePageContent = () => {
             Dealer
           </button>
         </div>
-        </div>
+      
+          
           </div>
 
           <div className="sm:h-3/4 h-[70%] flex items-center pr-7 pl-7 sm:pr-0 sm:pl-0">
             <div className="flex w-full justify-center items-center flex-col">
-              <div className="flex items-start flex-col sm:w-2/3 w-full">
+              <div className="flex items-start flex-col sm:w-2/3 w-full ">
                 <span
                   className="font-semibold flex text-white underline cursor-pointer"
                   // onClick={() => router.back()}
@@ -113,29 +116,29 @@ const CarMileagePageContent = () => {
                 <h1 className="sm:text-5xl text-3xl p-2 sm:p-0  text-white font-bold mt-5">
                   Confirm your car&apos;s current mileage
                 </h1>
-                <div className="flex w-fit items-center relative mt-5 ">
+                <div className="flex  items-center  w-full sm:w-full relative mt-5 ">
                   <input
                     type="text"
                     value={mileageEstimate}
                     // onChange={(e) => setMileageEstimate(e.target.value)}
-                    className="w-96  bg-white/30  text-white  shadow-lg  h-10 rounded-md sm:pl-2  sm:ml-3 "
+                    className="sm:w-full w-full  bg-white/30  text-white  shadow-lg  h-10 rounded-md sm:pl-2   "
                   />
                   <FcOk className="text-3xl absolute right-1" />
                 </div>
-                <span className="text-white text-xs mt-2 sm:ml-3 font-semibold">
+                <span className="text-white text-xs mt-2  font-semibold">
                   We&apos;ve estimated your mileage based on your car&apos;s MOT history
                 </span>
               </div>
             </div>
           </div>
           <div className="h-52 flex justify-center items-center  ">
-            <div className="flex sm:justify-start justify-center sm:mt-auto sm:w-3/4  w-full sm:items-center relative align-middle h-full">
+            <div className="flex sm:justify-start justify-center sm:mt-auto sm:w-3/4  w-full sm:items-center relative align-middle h-fit">
               <button
                 // onClick={handleContinue}
-                className="bg-yellow-500 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-96 "
+                className="bg-yellow-500 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-[90%] "
               >
                 Continue
-                <FaCircleArrowRight className="sm:bottom-14 bottom-2 sm:right-6 right-9 text-2xl absolute" />
+                <FaCircleArrowRight className="sm:bottom-6 bottom-3 sm:right-6 right-9 text-2xl absolute" />
               </button>
             </div>
           </div>
