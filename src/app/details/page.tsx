@@ -8,6 +8,13 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 import Link from "next/link";
 
+interface Errors {
+  email?: string;
+  name?: string;
+  phone?: string;
+  id?: string;
+}
+
 const DetailsPage = () => {
   const searchParams = useSearchParams();
   const vehicleNumber = searchParams.get("vehicleNumber");
@@ -15,26 +22,22 @@ const DetailsPage = () => {
   const [name, setName] = useState("");
   const router = useRouter();
   const [phone, setPhone] = useState("");
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<Errors>({});
   const [id, setId] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control mobile menu visibility
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: Errors = {};
     if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-      //@ts-ignore
       newErrors.email = "Please enter a valid email address.";
     }
     if (!name || name.trim().length < 2) {
-      //@ts-ignore
       newErrors.name = "Name must be at least 2 characters.";
     }
     if (!phone || !/^\d{10}$/.test(phone)) {
-      //@ts-ignore
       newErrors.phone = "Phone must be a valid 10-digit number.";
     }
     if (!id || id.trim().length < 3) {
-      //@ts-ignore
       newErrors.id = "Post Code must be at least 3 characters.";
     }
     setErrors(newErrors);
@@ -132,11 +135,9 @@ const DetailsPage = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                    {//@ts-ignore
-                    errors.email && (
+                    {errors.email && (
                       <p className="text-red-500 text-sm mt-1">
-                        {//@ts-ignore
-                        errors.email}
+                        {errors.email}
                       </p>
                     )}
                   </div>
@@ -148,11 +149,8 @@ const DetailsPage = () => {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
-                    {//@ts-ignore
-                    errors.name && (
-                      <p className="text-red-500 text-sm mt-1">{
-                        //@ts-ignore
-                        errors.name}</p>
+                    {errors.name && (
+                      <p className="text-red-500 text-sm mt-1">{errors.name}</p>
                     )}
                   </div>
                   <div>
@@ -163,11 +161,9 @@ const DetailsPage = () => {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                     />
-                    {//@ts-ignore
-                    errors.phone && (
+                    {errors.phone && (
                       <p className="text-red-500 text-sm mt-1">
-                        {//@ts-ignore
-                        errors.phone}
+                        {errors.phone}
                       </p>
                     )}
                   </div>
@@ -179,11 +175,8 @@ const DetailsPage = () => {
                       value={id}
                       onChange={(e) => setId(e.target.value)}
                     />
-                    {//@ts-ignore
-                    errors.id && (
-                      <p className="text-red-500 text-sm mt-1">{
-                        //@ts-ignore
-                        errors.id}</p>
+                    {errors.id && (
+                      <p className="text-red-500 text-sm mt-1">{errors.id}</p>
                     )}
                   </div>
                 </div>
