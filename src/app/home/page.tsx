@@ -119,23 +119,23 @@ const Page = () => {
                 <span className="text-black text-left text-sm md:text-xl font-semibold">
                   Your vehicle registration
                 </span>
-                <div className="flex gap-4 p-0 sm:p-0 sm:mt-2 md:flex-row flex-col">
+                <div className="flex gap-4 p-0 sm:p-0  w-full sm:mt-2 md:flex-row flex-col relative">
                   <input
                     type="text"
                     placeholder="ENTER REG"
                     value={vehicleNumber}
                     onChange={handleInputChange}
-                    className="w-[20rem] md:w-[25rem] lg:w-[25rem] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
+                    className="w-[20rem] md:w-[25rem] lg:w-[50%] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
                   />
-                  <div className="bg-yellow-500  flex rounded-lg relative w-fit">
+                 
                     <button
                       type="submit"
-                      className="bg-yellow-500 hover:bg-cyan-400 h-8 sm:h-12 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[20rem] lg:w-[23rem]"
+                      className="bg-yellow-500 hover:bg-cyan-400 h-8 sm:h-12 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[20rem] lg:w-[50%]"
                     >
                       Start Now
                       <FaCircleArrowRight className="right-3 bottom-2 sm:bottom-3 text-lg md:text-2xl absolute" />
                     </button>
-                  </div>
+                  
                 </div>
               </form>
             </div>
