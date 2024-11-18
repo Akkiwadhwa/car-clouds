@@ -17,8 +17,9 @@ const Page = () => {
   const router = useRouter();
 
   const handleInputChange = (e) => {
-    setVehicleNumber(e.target.value);
-  };
+    setVehicleNumber(e.target.value.toUpperCase());
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -120,13 +121,15 @@ const Page = () => {
                   Your vehicle registration
                 </span>
                 <div className="flex gap-4 p-0 sm:p-0 w-full sm:mt-2 md:flex-row flex-col relative">
-                  <input
-                    type="text"
-                    placeholder="ENTER REG"
-                    value={vehicleNumber}
-                    onChange={handleInputChange}
-                    className="w-[20rem] md:w-[25rem] lg:w-[50%] sm:mt-1  text-center bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
+                <input
+                      type="text"
+                      placeholder="ENTER REG"
+                      value={vehicleNumber}
+                      onChange={handleInputChange}
+                      className="w-[20rem] md:w-[25rem] lg:w-[50%] sm:mt-1 text-center bg-white text-3xl font-bold md:text-2xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-3xl md:placeholder:text-4xl placeholder:justify-center lg:placeholder:text-4xl placeholder:text-center h-8 sm:h-12 rounded-md caret-transparent"
                   />
+
+
 
                   <button
                     type="submit"
