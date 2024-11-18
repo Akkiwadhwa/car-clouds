@@ -9,48 +9,48 @@ import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 import Link from "next/link";
 
 const CarMileagePageContent = () => {
-  const searchParams = useSearchParams();
-  const vehicleNumber = searchParams.get("vehicleNumber");
-  const router = useRouter();
+  // const searchParams = useSearchParams();
+  // const vehicleNumber = searchParams.get("vehicleNumber");
+  // const router = useRouter();
 
-  const [vehicleData, setVehicleData] = useState(null);
-  const [mileageEstimate, setMileageEstimate] = useState("");
-  const [error, setError] = useState(null);
+  // const [vehicleData, setVehicleData] = useState(null);
+  // const [mileageEstimate, setMileageEstimate] = useState("");
+  // const [error, setError] = useState(null);
    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchVehicleData = async () => {
-      try {
-        // Fetch vehicle data including mileage
-        const response = await fetch(
-          `https://carcloudstest.fabspot.co.uk:5000/api/get_mileage?vehicle_number=${vehicleNumber}`
-        );
-        if (!response.ok) throw new Error("Failed to fetch vehicle data");
+  // useEffect(() => {
+  //   const fetchVehicleData = async () => {
+  //     try {
+  //       // Fetch vehicle data including mileage
+  //       const response = await fetch(
+  //         `https://carcloudstest.fabspot.co.uk:5000/api/get_mileage?vehicle_number=${vehicleNumber}`
+  //       );
+  //       if (!response.ok) throw new Error("Failed to fetch vehicle data");
 
-        const data = await response.json();
-        setVehicleData(data);
+  //       const data = await response.json();
+  //       setVehicleData(data);
 
-        // Get the last recorded mileage from the response
-        const lastMileage = data.summary?.lastRecordedMileage || "";
-        setMileageEstimate(lastMileage);
+  //       // Get the last recorded mileage from the response
+  //       const lastMileage = data.summary?.lastRecordedMileage || "";
+  //       setMileageEstimate(lastMileage);
 
-        setError(null);
-      } catch (error) {
-        setError(error.message);
-      }
-    };
+  //       setError(null);
+  //     } catch (error) {
+  //       setError(error.message);
+  //     }
+  //   };
 
-    if (vehicleNumber) {
-      fetchVehicleData();
-    }
-  }, [vehicleNumber]);
+  //   if (vehicleNumber) {
+  //     fetchVehicleData();
+  //   }
+  // }, [vehicleNumber]);
 
-  const handleContinue = () => {
-    router.push(`/details?vehicleNumber=${vehicleNumber}`);
-  };
+  // const handleContinue = () => {
+  //   router.push(`/details?vehicleNumber=${vehicleNumber}`);
+  // };
 
-  if (error) return <p className="text-red-500 mt-4">{error}</p>;
-  if (!vehicleData) return <p>Loading...</p>;
+  // if (error) return <p className="text-red-500 mt-4">{error}</p>;
+  // if (!vehicleData) return <p>Loading...</p>;
 
   return (
     <div className="w-full h-screen">
@@ -107,10 +107,10 @@ const CarMileagePageContent = () => {
 
           <div className="sm:h-3/4 h-[70%] flex items-center pr-7 pl-7 sm:pr-0 sm:pl-0">
             <div className="flex w-full justify-center items-center flex-col">
-              <div className="flex items-start flex-col sm:w-2/3 w-full ">
+              <div className="flex items-start  flex-col sm:w-2/3 w-full ">
                 <span
                   className="font-semibold flex text-white underline cursor-pointer"
-                  onClick={() => router.back()}
+                  // onClick={() => router.back()}
                 >
                   <MdKeyboardArrowLeft className="mt-1 sm:mt-0
                    text-white sm:text-xl text-lg " /> Back
@@ -119,12 +119,12 @@ const CarMileagePageContent = () => {
                 <h1 className="sm:text-5xl text-3xl p-2 sm:p-0  text-white font-bold mt-5">
                   Confirm your car&apos;s current mileage
                 </h1>
-                <div className="flex  items-center  w-fit sm:w-fit relative mt-5  ">
+                <div className="flex  items-center  w-full sm:w-fit relative mt-5  ">
                   <input
                     type="text"
-                    value={mileageEstimate}
-                    onChange={(e) => setMileageEstimate(e.target.value)}
-                    className="w-96  bg-white/30  text-white  shadow-lg  h-9 rounded-md sm:pl-2  sm:ml-3 "
+                    // value={mileageEstimate}
+                    // onChange={(e) => setMileageEstimate(e.target.value)}
+                    className="w-full  bg-white/30  text-white  shadow-lg  h-9 rounded-md sm:pl-2  sm:ml-3 "
                   />
                   <FcOk className="text-3xl absolute right-1" />
                 </div>
@@ -137,8 +137,8 @@ const CarMileagePageContent = () => {
           <div className="h-52 flex justify-center items-center  ">
             <div className="flex sm:justify-start justify-center sm:mt-auto sm:w-3/4  w-full sm:items-center relative align-middle h-fit">
               <button
-                onClick={handleContinue}
-                className="bg-yellow-500 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-96 "
+                // onClick={handleContinue}
+                className="bg-yellow-400 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-[90%] "
               >
                 Continue
                 <FaCircleArrowRight className="sm:bottom-6 bottom-3 sm:right-6 right-9 text-2xl absolute" />
