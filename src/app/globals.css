@@ -144,6 +144,9 @@ font-family: 'Lufga', sans-serif;
     background-image: url('../../public/car_clouds_new.png');
   }
 
+  .bgimg {
+    background-image: url('../../public/car_clouds.png')};
+
 }
 
 .foundcar {
