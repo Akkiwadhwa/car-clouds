@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useEffect, useState ,Suspense} from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 import Link from "next/link";
+
 const CarMileagePageContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-const [isMenuOpen, setIsMenuOpen] = useState(false); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   // Safely fetch query parameter
   const vehicleNumber = searchParams?.get("vehicle_number");
   const [vehicleData, setVehicleData] = useState(null);
@@ -54,52 +55,64 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
       <div className="flex w-full">
         {/* Left Section */}
         <div className="bgimg w-full flex flex-col h-screen">
-          <div className="flex flex-row justify-start items-center pt-5  w-[100%] ">
-            
-          <div className="h-fit sm:w-[30%] w-[50%]   flex  justify-start items-baseline ">
-                  <Link href="/home">
-            <Image
-              src="/ballons.png"
-              alt="Car with clouds"
-              width={350}
-              height={400}
-              className="sm:pl-10 ml-2 "
-            />
- </Link>
+          <div className="flex flex-row justify-start items-center pt-5 w-full">
+            <div className="h-fit sm:w-[30%] w-[50%] flex justify-start items-baseline">
+              <Link href="/home">
+                <Image
+                  src="/ballons.png"
+                  alt="Car with clouds"
+                  width={350}
+                  height={400}
+                  className="sm:pl-10 ml-2"
+                />
+              </Link>
+            </div>
 
-  </div>
+            {/* Menu Button */}
+            {/* <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="sm:hidden ml-auto text-white text-3xl mr-5"
+            >
+              <IoMdMenu className="pointer text-4xl" />
+            </button> */}
 
-            <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="sm:hidden ml-auto  text-white text-3xl mr-5"
-        >
-          <IoMdMenu className="pointer text-4xl" />
-        </button>
-
-        {/* Mobile Menu - Visible only on mobile */}
-        <div
-          className={`${
-            isMenuOpen ? "flex" : "hidden"
-          } absolute  top-10 right-14 bg-gray-300 text-sm rounded-lg border-4 border-blue-200 text-center items-center text-black flex-col gap-2  p-4 w-[35%] sm:hidden`}
-        >
-          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-            How it works
-          </button>
-          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-            Tools
-          </button>
-          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-            Sell my car
-          </button>
-          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-            More
-          </button>
-          <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-            Dealer
-          </button>
-        </div>
-      
-          
+            {/* Mobile Menu Overlay */}
+            {isMenuOpen && (
+              <div
+                className="fixed inset-0 bg-black bg-opacity-50 z-50 sm:hidden"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {/* Mobile Menu */}
+                <div
+                  className={`fixed top-0 left-0 h-full bg-white text-black flex flex-col gap-6 p-6 w-64 transform ${
+                    isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                  } transition-transform duration-300`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {/* <button
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-black text-2xl self-end"
+                  >
+                    &times;
+                  </button> */}
+                  <button className="hover:font-semibold py-2 rounded-full hover:bg-gray-200 text-left">
+                    How it works
+                  </button>
+                  <button className="hover:font-semibold py-2 rounded-full hover:bg-gray-200 text-left">
+                    Tools
+                  </button>
+                  <button className="hover:font-semibold py-2 rounded-full hover:bg-gray-200 text-left">
+                    Sell my car
+                  </button>
+                  <button className="hover:font-semibold py-2 rounded-full hover:bg-gray-200 text-left">
+                    More
+                  </button>
+                  <button className="hover:font-semibold py-2 rounded-full hover:bg-gray-200 text-left">
+                    Dealer
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="h-3/4 flex items-center">
@@ -107,7 +120,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
               <div className="flex sm:items-start flex-col pl-3 sm:pl-0 sm:w-2/3">
                 {/* Back Button */}
                 <button
-                  className="font-semibold flex text-white  cursor-pointer"
+                  className="font-semibold flex text-white cursor-pointer"
                   onClick={() => router.back()}
                 >
                   <MdKeyboardArrowLeft className="pt-1 text-white text-lg font-semibold" />
@@ -120,10 +133,10 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
                 </h1>
                 <div className="flex sm:items-center items-start relative gap-4 mt-5 flex-col">
                   <span className="bg-yellow-400 pl-4 text-3xl pr-4 font-bold text-black rounded-lg">
-                  {vehicleData.registrationNumber}
+                    {vehicleData.registrationNumber}
                   </span>
                 </div>
-                <span className="text-white text-xl sm:mt-4 mt-7  font-semibold flex items-center">
+                <span className="text-white text-xl sm:mt-4 mt-7 font-semibold flex items-center">
                   <Image
                     src="/bmw-logo (2).svg"
                     alt="BMW logo"
@@ -135,27 +148,24 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
                   {vehicleData.yearOfManufacture}) {vehicleData.colour}
                 </span>
                 <p className="text-white ml-10 text-sm -mt-1">
-                {vehicleData.fuelType} &#8226; {vehicleData.engineCapacity} cc
-                &#8226; {vehicleData.colour}
+                  {vehicleData.fuelType} • {vehicleData.engineCapacity} cc •{" "}
+                  {vehicleData.colour}
                 </p>
               </div>
-              <div className="mt-10  flex justify-start item-start w-[75%]">
+              <div className="mt-10 flex justify-start item-start w-[75%]">
                 <p className="text-white ml-10 underline sm:text-sm text-xs -mt-1">
                   This isn&apos;t the right car
                 </p>
-                </div>
+              </div>
             </div>
-            
           </div>
 
           {/* Continue Button */}
-           <div className="h-52 flex justify-center items-center  ">
-            <div className="flex sm:justify-start justify-center sm:mt-auto sm:w-3/4  w-full sm:items-center relative align-middle h-fit">
+          <div className="h-52 flex justify-center items-center">
+            <div className="flex sm:justify-start justify-center sm:mt-auto sm:w-3/4 w-full sm:items-center relative align-middle h-fit">
               <button
-
-                 onClick={handleContinue}
-                className="bg-yellow-500 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-[90%] "
-
+                onClick={handleContinue}
+                className="bg-yellow-500 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-[90%]"
               >
                 Continue
                 <FaCircleArrowRight className="sm:bottom-6 bottom-3 sm:right-6 right-9 text-2xl absolute" />
@@ -170,6 +180,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
           id="foundbg"
         >
           <div className="bg-transparent flex items-start justify-start mr-auto h-fit w-full">
+            {/* Optional Image */}
             {/* <Image
               src="/ballons.png"
               alt="Car with clouds"
@@ -184,7 +195,6 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
   );
 };
 
-
 const CarMileagePage = () => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -194,4 +204,3 @@ const CarMileagePage = () => {
 };
 
 export default CarMileagePage;
-
