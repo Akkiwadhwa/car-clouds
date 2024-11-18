@@ -46,7 +46,7 @@ font-family: 'Lufga', sans-serif;
 }
 
 .bgimg {
-  background-image: url('../../public/car_clouds.png');
+  background-image: url('../../public/car_clouds_new.png');
   background-size: 100% 100vh;
   align-content: end;
  
@@ -56,7 +56,7 @@ font-family: 'Lufga', sans-serif;
   object-fit: cover;
 }
 .bgcar {
-  background-image: url('../../public/car_clouds.png');
+  background-image: url('../../public/car_clouds_.png');
   background-size: 100% 90vh;
  
   align-content: top;
@@ -143,6 +143,8 @@ font-family: 'Lufga', sans-serif;
   .bgcar {
     background-image: url('../../public/car_clouds_new.png');
   }
+  .bgimg {
+    background-image: url('../../public/car_clouds.png');}
 
 }
 

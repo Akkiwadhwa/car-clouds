@@ -124,7 +124,7 @@ const CarMileagePageContent = () => {
                     type="text"
                     value={mileageEstimate}
                     onChange={(e) => setMileageEstimate(e.target.value)}
-                    className="w-96  bg-white/30  text-white  shadow-lg  h-10 rounded-md sm:pl-2  sm:ml-3 "
+                    className="w-96  bg-white/30  text-white  shadow-lg  h-9 rounded-md sm:pl-2  sm:ml-3 "
                   />
                   <FcOk className="text-3xl absolute right-1" />
                 </div>
