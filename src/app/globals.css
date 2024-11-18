@@ -149,6 +149,9 @@ font-family: 'Lufga', sans-serif;
 
 }
 
+.inputbox{
+  width: 400px;
+}
 .foundcar {
   background-image: url('../../public/cooper.jpeg');
   background-size: 100% 100%;
