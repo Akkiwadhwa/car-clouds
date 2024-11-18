@@ -35,7 +35,7 @@ const Page = () => {
   }
 
   return (
-    <div className=" bggray h-fit w-screen  overflow-x-hidden">
+    <div className=" bg-white h-fit w-screen  overflow-x-hidden">
       <div className="bgcar h-fit w-screen">
         <div className="flex  h-[15%] sm:h-[30%] items-start pt-1 sm:pt:0  sm:items-center justify-between px-0  sm:px-10 ">
           <Image
@@ -111,31 +111,30 @@ const Page = () => {
               </h3>
             </div>
 
-            <div className="justify-center  flex sm:h-fit sm:mt-0   ">
+            <div className="justify-center  flex sm:h-fit sm:mt-0  ">
               <form
                 onSubmit={handleSubmit}
-                className="bg-gray-200  shadow-xl sm:h-36 sm:mt-15 mt-10 ml-32 w-fit sm:ml-0 flex sm:items-start flex-col rounded-lg sm:w-[90%] sm:p-4 p-2"
+                className="bg-gray-200  shadow-xl sm:h-36  sm:mt-15 mt-10 ml-32 w-fit sm:ml-0 flex sm:items-start flex-col rounded-lg sm:w-[90%] sm:p-4 p-1"
               >
                 <span className="text-black text-left text-sm md:text-xl font-semibold">
                   Your vehicle registration
                 </span>
-                <div className="flex gap-4 p-0 sm:p-0  w-full sm:mt-2 md:flex-row flex-col relative">
+                <div className="flex gap-4 p-0 sm:p-0 w-full sm:mt-2 md:flex-row flex-col relative">
                   <input
                     type="text"
                     placeholder="ENTER REG"
                     value={vehicleNumber}
                     onChange={handleInputChange}
-                    className="w-[20rem] md:w-[25rem] lg:w-[50%] text-center bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
+                    className="w-[20rem] md:w-[25rem] lg:w-[50%] sm:mt-1  text-center bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
                   />
-                 
-                    <button
-                      type="submit"
-                      className="bg-yellow-500 hover:bg-cyan-400 h-8 sm:h-12 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[20rem] lg:w-[50%]"
-                    >
-                      Start Now
-                      <FaCircleArrowRight className="right-3 bottom-2 sm:bottom-3 text-lg md:text-2xl absolute" />
-                    </button>
-                  
+
+                  <button
+                    type="submit"
+                    className="bg-yellow-500 hover:bg-cyan-400 h-8 sm:mt-1  sm:h-12 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[20rem] lg:w-[50%]"
+                  >
+                    Start Now
+                    <FaCircleArrowRight className="right-3 bottom-2 sm:bottom-3 text-lg md:text-2xl absolute" />
+                  </button>
                 </div>
               </form>
             </div>

@@ -57,7 +57,7 @@ font-family: 'Lufga', sans-serif;
 }
 .bgcar {
   background-image: url('../../public/car_clouds_.png');
-  background-size: 100% 70vh;
+  background-size: 100% 75vh;
  
   align-content: top;
   object-fit: left;
