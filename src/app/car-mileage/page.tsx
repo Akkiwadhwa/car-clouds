@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { FcOk } from "react-icons/fc";
 import { FaCircleArrowRight } from "react-icons/fa6";
-import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
+// import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 import Link from "next/link";
 
 const CarMileagePageContent = () => {
@@ -16,7 +16,7 @@ const CarMileagePageContent = () => {
   const [vehicleData, setVehicleData] = useState(null);
   const [mileageEstimate, setMileageEstimate] = useState("");
   const [error, setError] = useState(null);
-   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  //  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const fetchVehicleData = async () => {
@@ -80,7 +80,7 @@ const CarMileagePageContent = () => {
         </button> */}
 
         {/* Mobile Menu - Visible only on mobile */}
-        <div
+        {/* <div
           className={`${
             isMenuOpen ? "flex" : "hidden"
           } absolute  top-10 right-14 bg-gray-300 text-sm rounded-lg border-4 border-blue-200 text-center items-center text-black flex-col gap-2  p-4 w-[35%] sm:hidden`}
@@ -101,7 +101,7 @@ const CarMileagePageContent = () => {
             Dealer
           </button>
         </div>
-      
+       */}
           
           </div>
 

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FaCircleArrowRight } from "react-icons/fa6";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
+// import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 import Link from "next/link";
 
 interface Errors {
@@ -24,7 +24,7 @@ const DetailsPage = () => {
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<Errors>({});
   const [id, setId] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control mobile menu visibility
+  // const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control mobile menu visibility
 
   const validateForm = () => {
     const newErrors: Errors = {};
@@ -90,7 +90,7 @@ const DetailsPage = () => {
             </button> */}
 
             {/* Mobile Menu - Visible only on mobile */}
-            <div
+            {/* <div
               className={`${
                 isMenuOpen ? "flex" : "hidden"
               } absolute  top-10 right-14 bg-gray-300 text-sm rounded-lg border-4 border-blue-200 text-center items-center text-black flex-col gap-2  p-4 w-[35%] sm:hidden`}
@@ -110,7 +110,7 @@ const DetailsPage = () => {
               <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
                 Dealer
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="h-screen flex  items-center   ">
             <div className="flex w-full justify-center items-center flex-col">
