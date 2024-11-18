@@ -81,13 +81,13 @@ const DetailsPage = () => {
                 />
               </Link>
             </div>
-
+{/* 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="sm:hidden ml-auto  text-white text-3xl mr-5"
             >
               <IoMdMenu className="pointer text-4xl" />
-            </button>
+            </button> */}
 
             {/* Mobile Menu - Visible only on mobile */}
             <div
