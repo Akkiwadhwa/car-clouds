@@ -125,7 +125,7 @@ const Page = () => {
                     placeholder="ENTER REG"
                     value={vehicleNumber}
                     onChange={handleInputChange}
-                    className="w-[20rem] md:w-[25rem] lg:w-[50%] bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
+                    className="w-[20rem] md:w-[25rem] lg:w-[50%] text-center bg-white text-2xl  font-bold md:text-xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-2xl md:placeholder:text-3xl  placeholder:justify-center lg:placeholder:text-3xl placeholder:text-center  h-8 sm:h-12 rounded-md"
                   />
                  
                     <button
