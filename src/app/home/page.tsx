@@ -36,7 +36,7 @@ const Page = () => {
 
   return (
     <div className=" bggray h-fit w-screen  overflow-x-hidden">
-      <div className="bgcar h-fit w-screen">
+      <div className="bgcar h-screen w-screen">
         <div className="flex  h-[15%] sm:h-[30%] items-start pt-1 sm:pt:0  sm:items-center justify-between px-0  sm:px-10 ">
           <Image
             id="ballons"
