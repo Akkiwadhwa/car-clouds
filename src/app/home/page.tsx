@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 
 const Page = () => {
   const [vehicleNumber, setVehicleNumber] = useState("");
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control mobile menu visibility
+  // const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control mobile menu visibility
   const router = useRouter();
 
   const handleInputChange = (e) => {
