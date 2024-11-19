@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
+// import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 import { FaArrowRightLong, FaCircleArrowRight } from "react-icons/fa6";
 import Imggrid from './components/Imggrid';
 import Card from './components/Card';
@@ -68,15 +68,15 @@ const Page = () => {
             {/* <button>Login</button> */}
           </div>
 
-          <button
+          {/* <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="sm:hidden mt-5 text-white text-3xl mr-5"
           >
             <IoMdMenu className="pointer text-4xl" />
-          </button>
+          </button> */}
 
           {/* Mobile Menu - Visible only on mobile */}
-          <div
+          {/* <div
             className={`${
               isMenuOpen ? "flex" : "hidden"
             } absolute  top-10 right-14 bg-gray-300 text-sm rounded-lg border-4 border-blue-200 text-center items-center text-black flex-col gap-2  p-4 w-[35%] sm:hidden`}
@@ -96,7 +96,7 @@ const Page = () => {
             <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
               Dealer
             </button>
-          </div>
+          </div> */}
         </div>
 
         {/* Remaining content */}

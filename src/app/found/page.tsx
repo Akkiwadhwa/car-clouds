@@ -121,7 +121,7 @@ const CarMileagePageContent = () => {
                 </div>
                 <span className="text-white text-xl sm:mt-4 mt-7  font-semibold flex items-center">
                   <Image
-                    src="/bmw-logo (2).svg"
+                    src={`https://www.carlogos.org/car-logos/${vehicleData.make.toLowerCase()}-logo.png`}
                     alt="BMW logo"
                     width={32}
                     height={32}
