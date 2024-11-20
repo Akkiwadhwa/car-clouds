@@ -2,6 +2,14 @@ import React from 'react';
 import { RiFacebookFill } from "react-icons/ri";
 import { FaInstagram } from "react-icons/fa";
 const FooterSection = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Enables smooth scrolling
+    });
+  };
+
+  
   return (
     <footer className="bg-[#001a4d] text-white w-screen bb-10 ">
       <div className="container mx-auto  text-center flex flex-col items-center space-y-6">
@@ -28,7 +36,7 @@ const FooterSection = () => {
         </div>
 
         {/* Call to Action Button */}
-        <button className="bg-yellow-500 text-black  font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-600 transition">
+        <button  onClick={scrollToTop} className="bg-yellow-500 text-black w-48 font-bold py-3 px-8 rounded-lg text-lg hover:bg-yellow-600 transition">
           Car Clouds For Dealers →
         </button>
 

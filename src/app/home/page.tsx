@@ -100,15 +100,15 @@ const Page = () => {
         <div className="sm:h-full h-fit flex  sm:flex-row">
           <div className="sm:h-[70%] flex w-[65%] h-[60%] sm:w-[60%] mt-10 flex-col ">
             <div className="flex  justify-center items-center sm:items-left   sm:ml-14 font-bold flex-col">
-              <span className="text-white text-2xl sm:text-6xl ml-5 sm:ml-0 md:text-7xl lg:text-7xl abc">
+              <span className="text-white text-3xl sm:text-6xl ml-5 sm:ml-0 md:text-7xl lg:text-7xl abc">
                 Get The Most For Your Car
                 <span className="hidden sm:inline"> with car clouds</span>
               </span>
 
-              <h3 className="font-normal pl-5 pt-1 sm:mt-3 mt-2  sm:pl-0   text-white h-fit sm:pr-0 pr-5 text-xs sm:text-xl">
+              <h1 className="font-normal pl-5 pt-1 sm:mt-3 mt-2 sm:pl-0 text-white h-fit sm:pr-0 pr-5 text-2xl sm:text-2xl qwe">
                 Most Car Cloud sellers surveyed got an average £1,000 more vs
                 part exchange quotes.
-              </h3>
+              </h1>
             </div>
 
             <div className="justify-center  flex sm:h-fit sm:mt-0  ">

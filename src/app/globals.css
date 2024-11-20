@@ -119,6 +119,10 @@ font-family: 'Lufga', sans-serif;
 }
 
 @media (max-width: 640px) { /* Mobile view */
+  .qwe{
+    font-size: 12px; /* Smaller font size */
+    line-height: 1.2; /* Smaller line height */
+  }
   .abc{
     font-size: 35px;
   }
@@ -145,7 +149,6 @@ font-family: 'Lufga', sans-serif;
     display: none;
 
   }
-
   .bgcar {
     background-image: url('../../public/new_bg.jpg');
   }
