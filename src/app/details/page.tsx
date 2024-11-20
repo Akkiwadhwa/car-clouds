@@ -34,9 +34,9 @@ const DetailsPage = () => {
     if (!name || name.trim().length < 2) {
       newErrors.name = "Name must be at least 2 characters.";
     }
-    if (!phone || !/^\d{10}$/.test(phone)) {
-      newErrors.phone = "Phone must be a valid 10-digit number.";
-    }
+    // if (!phone || !/^\d{10}$/.test(phone)) {
+    //   newErrors.phone = "Phone must be a valid 10-digit number.";
+    // }
     if (!id || id.trim().length < 3) {
       newErrors.id = "Post Code must be at least 3 characters.";
     }
@@ -190,7 +190,7 @@ const DetailsPage = () => {
                   is <u>here</u>. You can opt out of these emails and stop this
                   service at any time.
                 </div>
-                <div className="flex justify-center sm:mt-6 w-full p-4 sm:p-0 sm:w-[100%]  items-center relative align-middle h-12">
+                <div className="mt-5 mb-5 flex justify-center sm:mt-6 w-full p-4 sm:p-0 sm:w-[100%]  items-center relative align-middle h-12">
                   <button
                     className="bg-green-400 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-[90%] "
                     onClick={handleContinue}

@@ -4,12 +4,10 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 // import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
 import { FaArrowRightLong, FaCircleArrowRight } from "react-icons/fa6";
-import Imggrid from './components/Imggrid';
-import Card from './components/Card';
-import Faq from './components/Faq';
+import Imggrid from "./components/Imggrid";
+import Card from "./components/Card";
+import Faq from "./components/Faq";
 import Footer from "./components/Footer";
-
-
 
 const Page = () => {
   const [vehicleNumber, setVehicleNumber] = useState("");
@@ -18,8 +16,7 @@ const Page = () => {
 
   const handleInputChange = (e) => {
     setVehicleNumber(e.target.value.toUpperCase());
-};
-
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,9 +28,9 @@ const Page = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth', // Enables smooth scrolling
+      behavior: "smooth", // Enables smooth scrolling
     });
-  }
+  };
 
   return (
     <div className=" bg-white h-fit w-screen  overflow-x-hidden">
@@ -51,13 +48,13 @@ const Page = () => {
           {/* Mobile Menu Toggle Button */}
 
           {/* Desktop layout of menu items - Visible only on desktop */}
-          <div className="hidden sm:flex text-white flex-row items-center gap-6 text-xl font-bold p-10">
+          {/* <div className="hidden sm:flex text-white flex-row items-center gap-6 text-xl font-bold p-10">
             <button>How it works</button>
             <button>Tools</button>
             <button>Sell my car</button>
             <button>More</button>
             <button>Dealer</button>
-          </div>
+          </div> */}
 
           <div className="flex items-center mt-5 sm:mt-0 gap-3">
             {/* <img
@@ -103,9 +100,11 @@ const Page = () => {
         <div className="sm:h-full h-fit flex  sm:flex-row">
           <div className="sm:h-[70%] flex w-[65%] h-[60%] sm:w-[60%] mt-10 flex-col ">
             <div className="flex  justify-center items-center sm:items-left   sm:ml-14 font-bold flex-col">
-              <span className="text-white text-2xl sm:text-6xl ml-5 sm:ml-0  md:text-7xl lg:text-7xl">
-                Get The Most For Your Car with car clouds
+              <span className="text-white text-2xl sm:text-6xl ml-5 sm:ml-0 md:text-7xl lg:text-7xl abc">
+                Get The Most For Your Car
+                <span className="hidden sm:inline"> with car clouds</span>
               </span>
+
               <h3 className="font-normal pl-5 pt-1 sm:mt-3 mt-2  sm:pl-0   text-white h-fit sm:pr-0 pr-5 text-xs sm:text-xl">
                 Most Car Cloud sellers surveyed got an average £1,000 more vs
                 part exchange quotes.
@@ -121,15 +120,13 @@ const Page = () => {
                   Your vehicle registration
                 </span>
                 <div className="flex gap-4 p-0 sm:p-0 w-full sm:mt-2 md:flex-row flex-col relative">
-                <input
-                      type="text"
-                      placeholder="ENTER REG"
-                      value={vehicleNumber}
-                      onChange={handleInputChange}
-                      className="w-[20rem] md:w-[25rem] lg:w-[50%] sm:mt-1 text-center bg-white text-3xl font-bold md:text-2xl border-2 text-black border-gray-300 placeholder:font-semibold placeholder:text-3xl md:placeholder:text-4xl placeholder:justify-center lg:placeholder:text-4xl placeholder:text-center h-8 sm:h-12 rounded-md caret-transparent"
+                  <input
+                    type="text"
+                    placeholder="ENTER REG"
+                    value={vehicleNumber}
+                    onChange={handleInputChange}
+                    className="w-[20rem] md:w-[25rem] lg:w-[50%] sm:mt-1 text-center bg-white text-3xl font-bold md:text-2xl border-2 text-cyan-400 border-gray-300 placeholder:font-semibold placeholder:text-3xl md:placeholder:text-4xl placeholder:justify-center lg:placeholder:text-4xl placeholder:text-center h-8 sm:h-12 rounded-md caret-transparent"
                   />
-
-
 
                   <button
                     type="submit"
@@ -148,7 +145,7 @@ const Page = () => {
             id="carimagehome"
           >
             <Image
-              src="/car.png"
+              src="/car_.png"
               alt="Car with clouds"
               width={700}
               height={80}
@@ -231,8 +228,8 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="h-60 carfull flex flex-col justify-center w-screen ">
-        <div className="sm:text-6xl text-4xl text-center p-3 sm:p-0 flex justify-center items-center font-bold">
+      <div className="h-60 carfull flex flex-col justify-center w-screen">
+        <div className="mt-5 sm:text-6xl text-4xl text-center p-3 sm:p-0 flex justify-center items-center font-bold">
           Selling your Car with Car Clouds
         </div>
         <div className="text-sm  flex justify-center sm:mt-5 sm:p-0 pr-5 pl-10 items-center">
@@ -240,7 +237,7 @@ const Page = () => {
           dealers while fighting for the best price
         </div>
 
-        <div className="text-lg sm:mt-10 mt-2 text-black flex justify-center items-center ">
+        <div className="text-lg sm:mt-10 mt-2 text-black flex justify-center items-center mb-5">
           <button
             onClick={scrollToTop}
             className="rounded-lg bg-yellow-500 sm:px-8 px-5 sm:py-5 py-3 flex justify-center font-semibold"

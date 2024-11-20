@@ -136,7 +136,7 @@ const CarMileagePageContent = () => {
                 </p>
               </div>
               <div className="mt-10  flex justify-start item-start w-[75%]">
-                <p className="text-white ml-10 underline sm:text-sm text-xs -mt-1">
+                <p className="text-white ml-10 underline sm:text-sm text-xs -mt-1" onClick={() => router.push('/home')}>
                   This isn&apos;t the right car
                 </p>
               </div>

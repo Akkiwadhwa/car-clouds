@@ -114,9 +114,14 @@ font-family: 'Lufga', sans-serif;
   object-fit: cover;
   /* background-position: top; */
 }
-
+#ballons{
+  margin-left:-50px ;
+}
 
 @media (max-width: 640px) { /* Mobile view */
+  .abc{
+    font-size: 35px;
+  }
   #foundbg{
     display: none;
   }
@@ -134,6 +139,7 @@ font-family: 'Lufga', sans-serif;
 
   #ballons{
     width: 160px !important;
+    margin-left:1px ;
   }
   #foundbg{
     display: none;
@@ -141,7 +147,7 @@ font-family: 'Lufga', sans-serif;
   }
 
   .bgcar {
-    background-image: url('../../public/car_clouds_new.png');
+    background-image: url('../../public/new_bg.jpg');
   }
 
   .bgimg {
