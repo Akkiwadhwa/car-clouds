@@ -50,7 +50,7 @@ export default function HomePage() {
         </h1>
 
         <div className="flex items-center justify-center space-x-4 mt-10">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="flex items-center space-x-2">
             <input
               type="text"
               placeholder="ENTER YOUR REG"
