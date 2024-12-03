@@ -1,17 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
-// import { IoMdMenu } from "react-icons/io"; // Importing the menu icon
-import { FaArrowRightLong, FaCircleArrowRight } from "react-icons/fa6";
-import Imggrid from "./components/Imggrid";
-import Card from "./components/Card";
-import Faq from "./components/Faq";
-import Footer from "./components/Footer";
 
-const Page = () => {
+export default function HomePage() {
   const [vehicleNumber, setVehicleNumber] = useState("");
-  // const [isMenuOpen, setIsMenuOpen] = useState(false); // State to control mobile menu visibility
+
   const router = useRouter();
 
   const handleInputChange = (e) => {
@@ -24,258 +17,94 @@ const Page = () => {
       router.push(`/found?vehicle_number=${vehicleNumber}`);
     }
   };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // Enables smooth scrolling
-    });
-  };
-
   return (
-    <div className=" bg-white h-fit w-screen  overflow-x-hidden">
-      <div className="bgcar h-fit w-screen">
-        <div className="flex  h-[15%] sm:h-[30%] items-start pt-1 sm:pt:0  sm:items-center justify-between px-0  sm:px-10 ">
-          <Image
-            id="ballons"
-            src="/ballons.png"
-            alt="Car with clouds"
-            width={300}
-            height={350}
-            className="sm:pl-10 pl-5  h-28 w-52 sm:h-full sm:w-auto"
-          />
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-900 to-blue-500 text-white relative overflow-hidden">
+      {/* Background clouds */}
+      <div className="absolute top-0 left-0 w-full h-full bg-cover bg-no-repeat background-image" />
 
-          {/* Mobile Menu Toggle Button */}
+      {/* Balloons positioned at the top left */}
+      <img
+        src="/ballons.png"
+        alt="Balloons"
+        className="absolute top-4 left-4 z-20 w-32 sm:w-48 md:w-56 lg:w-64"
+        style={{ height: "auto" }}
+      />
 
-          {/* Desktop layout of menu items - Visible only on desktop */}
-          {/* <div className="hidden sm:flex text-white flex-row items-center gap-6 text-xl font-bold p-10">
-            <button>How it works</button>
-            <button>Tools</button>
-            <button>Sell my car</button>
-            <button>More</button>
-            <button>Dealer</button>
-          </div> */}
-
-          <div className="flex items-center mt-5 sm:mt-0 gap-3">
-            {/* <img
-            className="sm:w-10 sm:h-10 h-7 w-7 rounded-full"
-            src="/blank_img.webp"
-            alt="Rounded avatar"
-          /> */}
-            {/* <button>Login</button> */}
-          </div>
-
-          {/* <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="sm:hidden mt-5 text-white text-3xl mr-5"
-          >
-            <IoMdMenu className="pointer text-4xl" />
-          </button> */}
-
-          {/* Mobile Menu - Visible only on mobile */}
-          {/* <div
-            className={`${
-              isMenuOpen ? "flex" : "hidden"
-            } absolute  top-10 right-14 bg-gray-300 text-sm rounded-lg border-4 border-blue-200 text-center items-center text-black flex-col gap-2  p-4 w-[35%] sm:hidden`}
-          >
-            <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-              How it works
-            </button>
-            <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-              Tools
-            </button>
-            <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-              Sell my car
-            </button>
-            <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-              More
-            </button>
-            <button className="hover:cursor-pointer hover:font-semibold pr-2 pl-2 rounded-full hover:bg-gray-200">
-              Dealer
-            </button>
-          </div> */}
+      {/* Content */}
+      <header className="z-10 flex flex-col items-center">
+        <div className="flex items-center space-x-2">
+          <h3 className="text-2xl sm:text-3xl font-bold opacity-30">
+            Welcome to Car Clouds
+          </h3>
         </div>
+      </header>
 
-        {/* Remaining content */}
-        <div className="sm:h-full h-fit flex  sm:flex-row">
-          <div className="sm:h-[70%] flex w-[65%] h-[60%] sm:w-[60%] mt-10 flex-col ">
-            <div className="flex  justify-center items-center sm:items-left   sm:ml-14 font-bold flex-col">
-              <span className="text-white text-3xl sm:text-6xl ml-5 sm:ml-0 md:text-7xl lg:text-7xl abc">
-                Get The Most For Your Car
-                <span className="hidden sm:inline"> with car clouds</span>
-              </span>
+      <main className="z-10 text-center px-4">
+        <h1
+          className="font-bold mt-5 mb-6 text-5xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight"
+          style={{ lineHeight: ".9" }}
+        >
+          Get Your <span className="text-yellow-400">FREE</span>
+          <br />
+          Instant Valuation
+        </h1>
 
-              <h1 className="font-normal pl-5 pt-1 sm:mt-3 mt-2 sm:pl-0 text-white h-fit sm:pr-0 pr-5 text-2xl sm:text-2xl qwe">
-                Most Car Cloud sellers surveyed got an average £1,000 more vs
-                part exchange quotes.
-              </h1>
-            </div>
-
-            <div className="justify-center  flex sm:h-fit sm:mt-0  ">
-              <form
-                onSubmit={handleSubmit}
-                className="bg-gray-200  shadow-xl sm:h-36  sm:mt-15 mt-10 ml-32 w-fit sm:ml-0 flex sm:items-start flex-col rounded-lg sm:w-[90%] sm:p-4 p-1"
-              >
-                <span className="text-black text-left text-sm md:text-xl font-semibold">
-                  Your vehicle registration
-                </span>
-                <div className="flex gap-4 p-0 sm:p-0 w-full sm:mt-2 md:flex-row flex-col relative">
-                  <input
-                    type="text"
-                    placeholder="ENTER REG"
-                    value={vehicleNumber}
-                    onChange={handleInputChange}
-                    className="w-[20rem] md:w-[25rem] lg:w-[50%] sm:mt-1 text-center bg-white text-3xl font-bold md:text-2xl border-2 text-cyan-400 border-gray-300 placeholder:font-semibold placeholder:text-3xl md:placeholder:text-4xl placeholder:justify-center lg:placeholder:text-4xl placeholder:text-center h-8 sm:h-12 rounded-md caret-transparent"
-                  />
-
-                  <button
-                    type="submit"
-                    className="bg-yellow-500 hover:bg-cyan-400 h-8 sm:mt-1  sm:h-12 rounded-lg text-black font-bold text-xl md:text-2xl w-[20rem] md:w-[20rem] lg:w-[50%]"
-                  >
-                    Start Now
-                    <FaCircleArrowRight className="right-3 bottom-2 sm:bottom-3 text-lg md:text-2xl absolute" />
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div
-            className="overflow-hidden flex  justify-end sm:justify-end h-52 w-[100%] sm:h-[60%] sm:w-[40%]"
-            id="carimagehome"
-          >
-            <Image
-              src="/car_.png"
-              alt="Car with clouds"
-              width={700}
-              height={80}
-              className="sm:pl-10 "
+        <div className="flex items-center justify-center space-x-4 mt-10">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="ENTER YOUR REG"
+              value={vehicleNumber}
+              onChange={handleInputChange}
+              className="w-64 sm:w-80 px-4 py-3 rounded-md bg-white/20 text-gray-300 font-bold focus:outline-none placeholder-gray-300 placeholder:font-bold"
             />
-          </div>
-        </div>
-      </div>
-      {/* lower section  */}
-      <div className="w-screen over-x-hidden bggray h-fit   ">
-        <div className="flex flex-col items-center   py-8  min-h-screen w-screen overflow-x-hidden">
-          <h1 className="sm:text-6xl text-xl font-bold text-center mt-8 text-black">
-            How to sell your car with Car Clouds
-          </h1>
 
-          <div className="flex flex-col lg:flex-row sm:gap-3  justify-center items-center  sm:mr-20 sm:ml-20 ">
-            {/* Instant Valuation */}
-            <div className="flex flex-col items-center text-center p-2 sm:mt-10  rounded-lg  w-full lg:w-1/3">
-              <div className=" p-3 rounded-full ">
-                {/* Icon (example: price tag icon) */}
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/66016d2b60ecbd0de68c4460/8a9346bb-3738-4df1-af88-d2c7b887cd74/1.png"
-                  alt="Example Image"
-                  width={900}
-                  height={900}
-                  className="object-cover rounded-lg w-80"
-                />
+            <button className="flex items-center justify-center w-16 h-12 bg-green-500 hover:bg-green-600 rounded-md shadow-md">
+              <div className="flex items-center justify-center w-8 h-8 bg-white rounded-full">
+                <span className="text-green-500 text-lg">→</span>
               </div>
-              <h2 className="text-xl font-semibold text-blue-800  mb-2">
-                Get an Instant Valuation
-              </h2>
-              <p className="text-gray-600 pr-2 pl-2">
-                Enter your registration and a few quick details, and we’ll give
-                you a transparent, market-based valuation.
-              </p>
-            </div>
-
-            {/* Advertise to Dealers */}
-            <div className="flex flex-col items-center text-center p-2 sm:mt-10  rounded-lg  w-full lg:w-1/3">
-              <div className=" p-3 rounded-full ">
-                {/* Icon (example: price tag icon) */}
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/66016d2b60ecbd0de68c4460/60b8cb91-0be9-48b5-9e2c-6343a3dd0629/2.png"
-                  alt="Example Image"
-                  width={600}
-                  height={600}
-                  className="object-cover rounded-lg w-80"
-                />
-              </div>
-              <h2 className="text-xl font-semibold text-blue-700 mb-2">
-                Advertise to Dealers
-              </h2>
-              <p className="text-gray-600 pr-2 pl-2">
-                With a few photos and some details, your car is listed on our
-                site, showcased to over 500 dealers.
-              </p>
-            </div>
-
-            {/* Free Collection, Fast Payment */}
-            <div className="flex flex-col items-center text-center p-2 sm:mt-10  rounded-lg  w-full lg:w-1/3">
-              <div className=" p-3 rounded-full ">
-                {/* Icon (example: price tag icon) */}
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/66016d2b60ecbd0de68c4460/9e731a71-45f8-43a1-8ff5-b6acee1842bb/3.png"
-                  alt="Example Image"
-                  width={900}
-                  height={900}
-                  className="object-cover rounded-lg w-80"
-                />
-              </div>
-              <h2 className="text-xl font-semibold text-blue-700 mb-2">
-                Free Collection, Fast Payment
-              </h2>
-              <p className="text-gray-600 pr-2 pl-2">
-                Once the auction closes, you’re notified of the top bid, and the
-                winning dealer will arrange pickup.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="h-60 carfull flex flex-col justify-center w-screen">
-        <div className="mt-5 sm:text-6xl text-4xl text-center p-3 sm:p-0 flex justify-center items-center font-bold">
-          Selling your Car with Car Clouds
-        </div>
-        <div className="text-sm  flex justify-center sm:mt-5 sm:p-0 pr-5 pl-10 items-center">
-          we work on your behalf, ensuring your car is present to thousand of
-          dealers while fighting for the best price
+            </button>
+          </form>
         </div>
 
-        <div className="text-lg sm:mt-10 mt-2 text-black flex justify-center items-center mb-5">
-          <button
-            onClick={scrollToTop}
-            className="rounded-lg bg-yellow-500 sm:px-8 px-5 sm:py-5 py-3 flex justify-center font-semibold"
+        <div className="max-w-md mx-auto mt-10">
+          <p
+            className="text-base"
+            style={{
+              color: "#A0B6E0",
+              fontWeight: 300,
+              lineHeight: 1.2,
+              opacity: 0.8,
+            }}
           >
-            Value My Car
-            <FaArrowRightLong className="mt-2 flex ml-3 text-xs" />
-          </button>
-        </div>
-      </div>
-
-      <div className="flex min-h-fit flex-col  items-center  mt-20 sm:mb-20 ">
-        <div className=" flex flex-col justify-center items-center text-black  ">
-          <h1 className="sm:text-5xl text-3xl text-center font-bold p-5 sm:p-0 ">
-            {" "}
-            Selling Your Car Has Never Been this easier{" "}
-          </h1>
-          <p className="sm:w-[60%] w-[90%] mt-2 text-xs sm:text-sm text-center">
-            With Car CLouds You are in a control every step of the way. From
-            instant valuations to fast payment, our process is build to make
-            selling your car as smooth and rewarding as possible
+            Most Car Cloud sellers surveyed got an average £1,000 more vs part
+            exchange quotes.
           </p>
         </div>
-        <Imggrid />
-      </div>
+      </main>
 
-      <div className="w-screen bggray">
-        <Card />
-      </div>
+      <style jsx>{`
+        .background-image {
+          background-image: url("/new_bg.jpg");
+        }
 
-      <div className="w-screen">
-        <Faq />
-      </div>
+        @media (min-width: 640px) {
+          /* sm and above */
+          .background-image {
+            background-image: url("/car_clouds_new.png");
+          }
+        }
 
-      <div className="w-screen">
-        <Footer />
-      </div>
+        .background-image {
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+        }
+      `}</style>
     </div>
   );
-};
-
-export default Page;
+}
