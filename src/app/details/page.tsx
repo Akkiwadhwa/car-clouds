@@ -44,21 +44,39 @@ const DetailsPage = () => {
     return Object.keys(newErrors).length === 0; // Return true if no errors
   };
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     if (!validateForm()) {
       return; // Stop if validation fails
     }
 
-    // Include vehicleData and user inputs in the data to pass to the next page
-    const updatedData = {
+    const formData = {
       vehicleNumber,
       email,
       name,
       phone,
       id,
     };
-    const dataString = encodeURIComponent(JSON.stringify(updatedData));
-    router.push(`/estimate?data=${dataString}`);
+
+    try {
+      const response = await fetch("https://carcloudstest.fabspot.co.uk:5000/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result)
+        // alert("Email sent successfully: " + result.message);
+      } else {
+        // alert("Failed to send email. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   if (!vehicleNumber) {
@@ -81,7 +99,7 @@ const DetailsPage = () => {
                 />
               </Link>
             </div>
-{/* 
+            {/* 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="sm:hidden ml-auto  text-white text-3xl mr-5"

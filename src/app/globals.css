@@ -106,7 +106,7 @@ font-family: 'Lufga', sans-serif;
 
 #foundbg{
   background-image: url('../../public/13.png');
-  background-size: 140% 100%;
+  /* background-size: 140% 100%; */
   align-content: top;
 
   /* Adjust size as needed */
@@ -154,7 +154,7 @@ font-family: 'Lufga', sans-serif;
   }
 
   .bgimg {
-    background-image: url('../../public/car_clouds.png')};
+    background-image: url('../../public/new_bg.jpg')};
 
 }
 
