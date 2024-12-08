@@ -73,6 +73,15 @@ const DetailsPage = () => {
       } else {
         // alert("Failed to send email. Please try again later.");
       }
+      const updatedData = {
+        vehicleNumber,
+        email,
+        name,
+        phone,
+        id,
+      };
+      const dataString = encodeURIComponent(JSON.stringify(updatedData));
+      router.push(`/estimate?data=${dataString}`);
     } catch (error) {
       console.error("Error sending email:", error);
       alert("An error occurred. Please try again.");
