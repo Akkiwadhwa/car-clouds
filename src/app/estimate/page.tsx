@@ -17,6 +17,8 @@ const EstimatePage = () => {
 
   const router = useRouter();
 
+  
+
   useEffect(() => {
     const fetchValuationData = async () => {
       try {

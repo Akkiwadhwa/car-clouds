@@ -134,7 +134,7 @@ const CarMileagePageContent = () => {
               </div>
             </div>
           </div>
-          <div className="h-52 flex justify-center items-center  ">
+          <div className="h-52 flex justify-center items-center mb-10 ">
             <div className="flex sm:justify-start justify-center sm:mt-auto sm:w-3/4  w-full sm:items-center relative align-middle h-fit">
               <button
                 onClick={handleContinue}

@@ -26,7 +26,7 @@ export default function HomePage() {
       <img
         src="/ballons.png"
         alt="Balloons"
-        className="absolute top-4 left-4 z-20 w-32 sm:w-48 md:w-56 lg:w-64"
+        className="absolute top-4 left-4 z-20 w-32 sm:w-48 md:w-56 lg:w-54"
         style={{ height: "auto" }}
       />
 

@@ -121,7 +121,7 @@ const CarMileagePageContent = () => {
                 </div>
                 <span className="text-white text-xl sm:mt-4 mt-7  font-semibold flex items-center">
                   <Image
-                    src={`https://www.carlogos.org/car-logos/${vehicleData.make.toLowerCase()}-logo.png`}
+                    src={`https://www.carlogos.org/car-logos/${vehicleData.make.toLowerCase().replace(/\s+/g, '-')}-logo.png`}
                     alt="BMW logo"
                     width={32}
                     height={32}
@@ -144,7 +144,7 @@ const CarMileagePageContent = () => {
           </div>
 
           {/* Continue Button */}
-          <div className="h-52 flex justify-center items-center  ">
+          <div className="h-52 flex justify-center items-center mb-10 ">
             <div className="flex sm:justify-start justify-center sm:mt-auto sm:w-3/4  w-full sm:items-center relative align-middle h-fit">
               <button
                 onClick={handleContinue}

@@ -18,8 +18,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Car Clouds",
-  description: "Car Clouds",
+  title: "Valuation - ",
+  description: "Get Instant Free valuation for your car",
 };
 
 export default function RootLayout({
