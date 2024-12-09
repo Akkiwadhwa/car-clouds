@@ -18,7 +18,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Valuation - ",
+  title: "Valuation - Get Instant Free valuation for your car",
   description: "Get Instant Free valuation for your car",
 };
 
