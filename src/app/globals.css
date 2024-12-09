@@ -26,7 +26,7 @@ font-family: 'Lufga', sans-serif;
 
 .carfull {
   background-image: url('../../public/carbg.jpg');
-  background-size: 100% 100vh;
+  background-size: 101% 100vh;
   align-content: center;
 
   /* Adjust size as needed */
