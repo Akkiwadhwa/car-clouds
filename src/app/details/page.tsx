@@ -18,6 +18,8 @@ interface Errors {
 const DetailsPage = () => {
   const searchParams = useSearchParams();
   const vehicleNumber = searchParams.get("vehicleNumber");
+  const milage = searchParams.get("milage");
+  const apidata = searchParams.get("apidata");
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const router = useRouter();
@@ -55,6 +57,8 @@ const DetailsPage = () => {
       name,
       phone,
       id,
+      milage,
+      apidata
     };
 
     try {
@@ -217,7 +221,7 @@ const DetailsPage = () => {
                   is <u>here</u>. You can opt out of these emails and stop this
                   service at any time.
                 </div>
-                <div className="mt-5 mb-5 flex justify-center sm:mt-6 w-full p-4 sm:p-0 sm:w-[100%]  items-center relative align-middle h-12">
+                <div className=" mb-5 flex justify-center sm:mt-6 w-full p-4 sm:p-0 sm:w-[100%]  items-center relative align-middle h-12 extrapad">
                   <button
                     className="bg-green-400 h-12 rounded-xl sm:mb-3 sm:mt-5 text-black font-bold text-xl sm:w-full w-[90%] "
                     onClick={handleContinue}

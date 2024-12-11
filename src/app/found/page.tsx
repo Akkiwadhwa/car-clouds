@@ -41,7 +41,8 @@ const CarMileagePageContent = () => {
 
   // Handle navigation on button click
   const handleContinue = () => {
-    router.push(`/car-mileage?vehicleNumber=${vehicleNumber}`);
+    const dataString = encodeURIComponent(JSON.stringify(vehicleData));
+    router.push(`/car-mileage?vehicleNumber=${vehicleNumber}&apidata=${dataString}`);
   };
 
   // Handle loading and error states

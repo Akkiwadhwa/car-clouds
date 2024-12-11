@@ -11,6 +11,7 @@ import Link from "next/link";
 const CarMileagePageContent = () => {
   const searchParams = useSearchParams();
   const vehicleNumber = searchParams.get("vehicleNumber");
+  const apidata = searchParams.get("apidata");
   const router = useRouter();
 
   const [vehicleData, setVehicleData] = useState(null);
@@ -46,7 +47,7 @@ const CarMileagePageContent = () => {
   }, [vehicleNumber]);
 
   const handleContinue = () => {
-    router.push(`/details?vehicleNumber=${vehicleNumber}`);
+    router.push(`/details?vehicleNumber=${vehicleNumber}&milage=${mileageEstimate}&apidata=${apidata}`);
   };
 
   if (error) return <p className="text-red-500 mt-4">{error}</p>;

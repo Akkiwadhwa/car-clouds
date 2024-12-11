@@ -156,6 +156,10 @@ font-family: 'Lufga', sans-serif;
   .bgimg {
     background-image: url('../../public/new_bg.jpg')};
 
+  .extrapad{
+    margin-bottom: 50px;
+   } 
+
 }
 
 .inputbox{
